@@ -1,0 +1,2960 @@
+{
+  "total_events": 8710,
+  "by_type": {
+    "shot": 5957,
+    "hit": 2126,
+    "destroyed": 627
+  },
+  "by_step": {
+    "1": {
+      "total": 43,
+      "types": {
+        "shot": 25,
+        "hit": 16,
+        "destroyed": 2
+      }
+    },
+    "2": {
+      "total": 55,
+      "types": {
+        "shot": 35,
+        "hit": 14,
+        "destroyed": 6
+      }
+    },
+    "3": {
+      "total": 53,
+      "types": {
+        "shot": 35,
+        "hit": 13,
+        "destroyed": 5
+      }
+    },
+    "4": {
+      "total": 71,
+      "types": {
+        "shot": 36,
+        "hit": 24,
+        "destroyed": 11
+      }
+    },
+    "5": {
+      "total": 48,
+      "types": {
+        "shot": 25,
+        "hit": 16,
+        "destroyed": 7
+      }
+    },
+    "6": {
+      "total": 36,
+      "types": {
+        "shot": 23,
+        "hit": 9,
+        "destroyed": 4
+      }
+    },
+    "7": {
+      "total": 62,
+      "types": {
+        "shot": 31,
+        "hit": 18,
+        "destroyed": 13
+      }
+    },
+    "8": {
+      "total": 60,
+      "types": {
+        "shot": 28,
+        "hit": 19,
+        "destroyed": 13
+      }
+    },
+    "9": {
+      "total": 52,
+      "types": {
+        "shot": 28,
+        "hit": 14,
+        "destroyed": 10
+      }
+    },
+    "10": {
+      "total": 46,
+      "types": {
+        "shot": 31,
+        "hit": 11,
+        "destroyed": 4
+      }
+    },
+    "11": {
+      "total": 55,
+      "types": {
+        "shot": 41,
+        "hit": 10,
+        "destroyed": 4
+      }
+    },
+    "12": {
+      "total": 81,
+      "types": {
+        "shot": 47,
+        "hit": 24,
+        "destroyed": 10
+      }
+    },
+    "13": {
+      "total": 80,
+      "types": {
+        "shot": 46,
+        "hit": 21,
+        "destroyed": 13
+      }
+    },
+    "14": {
+      "total": 68,
+      "types": {
+        "shot": 38,
+        "hit": 18,
+        "destroyed": 12
+      }
+    },
+    "15": {
+      "total": 67,
+      "types": {
+        "shot": 40,
+        "hit": 21,
+        "destroyed": 6
+      }
+    },
+    "16": {
+      "total": 82,
+      "types": {
+        "shot": 48,
+        "hit": 23,
+        "destroyed": 11
+      }
+    },
+    "17": {
+      "total": 72,
+      "types": {
+        "shot": 45,
+        "hit": 20,
+        "destroyed": 7
+      }
+    },
+    "18": {
+      "total": 75,
+      "types": {
+        "shot": 47,
+        "hit": 21,
+        "destroyed": 7
+      }
+    },
+    "19": {
+      "total": 73,
+      "types": {
+        "shot": 52,
+        "hit": 16,
+        "destroyed": 5
+      }
+    },
+    "20": {
+      "total": 85,
+      "types": {
+        "shot": 56,
+        "hit": 21,
+        "destroyed": 8
+      }
+    },
+    "21": {
+      "total": 82,
+      "types": {
+        "shot": 43,
+        "hit": 25,
+        "destroyed": 14
+      }
+    },
+    "22": {
+      "total": 51,
+      "types": {
+        "shot": 29,
+        "hit": 15,
+        "destroyed": 7
+      }
+    },
+    "23": {
+      "total": 40,
+      "types": {
+        "shot": 30,
+        "hit": 8,
+        "destroyed": 2
+      }
+    },
+    "24": {
+      "total": 55,
+      "types": {
+        "shot": 35,
+        "hit": 15,
+        "destroyed": 5
+      }
+    },
+    "25": {
+      "total": 55,
+      "types": {
+        "shot": 32,
+        "hit": 17,
+        "destroyed": 6
+      }
+    },
+    "26": {
+      "total": 39,
+      "types": {
+        "shot": 29,
+        "hit": 8,
+        "destroyed": 2
+      }
+    },
+    "27": {
+      "total": 52,
+      "types": {
+        "shot": 38,
+        "hit": 10,
+        "destroyed": 4
+      }
+    },
+    "28": {
+      "total": 43,
+      "types": {
+        "shot": 31,
+        "hit": 10,
+        "destroyed": 2
+      }
+    },
+    "29": {
+      "total": 70,
+      "types": {
+        "shot": 44,
+        "hit": 19,
+        "destroyed": 7
+      }
+    },
+    "30": {
+      "total": 79,
+      "types": {
+        "shot": 53,
+        "hit": 18,
+        "destroyed": 8
+      }
+    },
+    "31": {
+      "total": 85,
+      "types": {
+        "shot": 57,
+        "hit": 23,
+        "destroyed": 5
+      }
+    },
+    "32": {
+      "total": 79,
+      "types": {
+        "shot": 54,
+        "hit": 18,
+        "destroyed": 7
+      }
+    },
+    "33": {
+      "total": 81,
+      "types": {
+        "shot": 50,
+        "hit": 20,
+        "destroyed": 11
+      }
+    },
+    "34": {
+      "total": 67,
+      "types": {
+        "shot": 46,
+        "hit": 14,
+        "destroyed": 7
+      }
+    },
+    "35": {
+      "total": 85,
+      "types": {
+        "shot": 60,
+        "hit": 19,
+        "destroyed": 6
+      }
+    },
+    "36": {
+      "total": 93,
+      "types": {
+        "shot": 63,
+        "hit": 23,
+        "destroyed": 7
+      }
+    },
+    "37": {
+      "total": 99,
+      "types": {
+        "shot": 71,
+        "hit": 21,
+        "destroyed": 7
+      }
+    },
+    "38": {
+      "total": 102,
+      "types": {
+        "shot": 67,
+        "hit": 26,
+        "destroyed": 9
+      }
+    },
+    "39": {
+      "total": 120,
+      "types": {
+        "shot": 77,
+        "hit": 31,
+        "destroyed": 12
+      }
+    },
+    "40": {
+      "total": 119,
+      "types": {
+        "shot": 76,
+        "hit": 32,
+        "destroyed": 11
+      }
+    },
+    "41": {
+      "total": 105,
+      "types": {
+        "shot": 67,
+        "hit": 27,
+        "destroyed": 11
+      }
+    },
+    "42": {
+      "total": 108,
+      "types": {
+        "shot": 67,
+        "hit": 31,
+        "destroyed": 10
+      }
+    },
+    "43": {
+      "total": 92,
+      "types": {
+        "shot": 58,
+        "hit": 22,
+        "destroyed": 12
+      }
+    },
+    "44": {
+      "total": 93,
+      "types": {
+        "shot": 59,
+        "hit": 25,
+        "destroyed": 9
+      }
+    },
+    "45": {
+      "total": 118,
+      "types": {
+        "shot": 78,
+        "hit": 33,
+        "destroyed": 7
+      }
+    },
+    "46": {
+      "total": 110,
+      "types": {
+        "shot": 80,
+        "hit": 23,
+        "destroyed": 7
+      }
+    },
+    "47": {
+      "total": 111,
+      "types": {
+        "shot": 77,
+        "hit": 27,
+        "destroyed": 7
+      }
+    },
+    "48": {
+      "total": 75,
+      "types": {
+        "shot": 54,
+        "hit": 14,
+        "destroyed": 7
+      }
+    },
+    "49": {
+      "total": 61,
+      "types": {
+        "shot": 39,
+        "hit": 18,
+        "destroyed": 4
+      }
+    },
+    "50": {
+      "total": 53,
+      "types": {
+        "shot": 32,
+        "hit": 15,
+        "destroyed": 6
+      }
+    },
+    "51": {
+      "total": 60,
+      "types": {
+        "shot": 41,
+        "hit": 16,
+        "destroyed": 3
+      }
+    },
+    "52": {
+      "total": 66,
+      "types": {
+        "shot": 45,
+        "hit": 17,
+        "destroyed": 4
+      }
+    },
+    "53": {
+      "total": 81,
+      "types": {
+        "shot": 59,
+        "hit": 18,
+        "destroyed": 4
+      }
+    },
+    "54": {
+      "total": 90,
+      "types": {
+        "shot": 63,
+        "hit": 23,
+        "destroyed": 4
+      }
+    },
+    "55": {
+      "total": 81,
+      "types": {
+        "shot": 53,
+        "hit": 21,
+        "destroyed": 7
+      }
+    },
+    "56": {
+      "total": 70,
+      "types": {
+        "shot": 52,
+        "hit": 15,
+        "destroyed": 3
+      }
+    },
+    "57": {
+      "total": 40,
+      "types": {
+        "shot": 29,
+        "hit": 9,
+        "destroyed": 2
+      }
+    },
+    "58": {
+      "total": 36,
+      "types": {
+        "shot": 24,
+        "hit": 10,
+        "destroyed": 2
+      }
+    },
+    "59": {
+      "total": 33,
+      "types": {
+        "shot": 21,
+        "hit": 8,
+        "destroyed": 4
+      }
+    },
+    "60": {
+      "total": 42,
+      "types": {
+        "shot": 31,
+        "hit": 9,
+        "destroyed": 2
+      }
+    },
+    "61": {
+      "total": 56,
+      "types": {
+        "shot": 37,
+        "hit": 14,
+        "destroyed": 5
+      }
+    },
+    "62": {
+      "total": 54,
+      "types": {
+        "shot": 41,
+        "hit": 11,
+        "destroyed": 2
+      }
+    },
+    "63": {
+      "total": 38,
+      "types": {
+        "shot": 23,
+        "hit": 11,
+        "destroyed": 4
+      }
+    },
+    "64": {
+      "total": 34,
+      "types": {
+        "shot": 20,
+        "hit": 12,
+        "destroyed": 2
+      }
+    },
+    "65": {
+      "total": 33,
+      "types": {
+        "shot": 21,
+        "hit": 10,
+        "destroyed": 2
+      }
+    },
+    "66": {
+      "total": 37,
+      "types": {
+        "shot": 22,
+        "hit": 12,
+        "destroyed": 3
+      }
+    },
+    "67": {
+      "total": 32,
+      "types": {
+        "shot": 15,
+        "hit": 10,
+        "destroyed": 7
+      }
+    },
+    "68": {
+      "total": 22,
+      "types": {
+        "shot": 10,
+        "hit": 8,
+        "destroyed": 4
+      }
+    },
+    "69": {
+      "total": 14,
+      "types": {
+        "shot": 10,
+        "hit": 3,
+        "destroyed": 1
+      }
+    },
+    "70": {
+      "total": 30,
+      "types": {
+        "shot": 17,
+        "hit": 8,
+        "destroyed": 5
+      }
+    },
+    "71": {
+      "total": 58,
+      "types": {
+        "shot": 35,
+        "hit": 17,
+        "destroyed": 6
+      }
+    },
+    "72": {
+      "total": 28,
+      "types": {
+        "shot": 21,
+        "hit": 4,
+        "destroyed": 3
+      }
+    },
+    "73": {
+      "total": 45,
+      "types": {
+        "shot": 30,
+        "hit": 10,
+        "destroyed": 5
+      }
+    },
+    "74": {
+      "total": 52,
+      "types": {
+        "shot": 36,
+        "hit": 11,
+        "destroyed": 5
+      }
+    },
+    "75": {
+      "total": 59,
+      "types": {
+        "shot": 37,
+        "hit": 15,
+        "destroyed": 7
+      }
+    },
+    "76": {
+      "total": 64,
+      "types": {
+        "shot": 41,
+        "hit": 17,
+        "destroyed": 6
+      }
+    },
+    "77": {
+      "total": 76,
+      "types": {
+        "shot": 55,
+        "hit": 14,
+        "destroyed": 7
+      }
+    },
+    "78": {
+      "total": 76,
+      "types": {
+        "shot": 53,
+        "hit": 16,
+        "destroyed": 7
+      }
+    },
+    "79": {
+      "total": 75,
+      "types": {
+        "shot": 52,
+        "hit": 19,
+        "destroyed": 4
+      }
+    },
+    "80": {
+      "total": 84,
+      "types": {
+        "shot": 59,
+        "hit": 20,
+        "destroyed": 5
+      }
+    },
+    "81": {
+      "total": 95,
+      "types": {
+        "shot": 66,
+        "hit": 22,
+        "destroyed": 7
+      }
+    },
+    "82": {
+      "total": 79,
+      "types": {
+        "shot": 48,
+        "hit": 24,
+        "destroyed": 7
+      }
+    },
+    "83": {
+      "total": 85,
+      "types": {
+        "shot": 54,
+        "hit": 23,
+        "destroyed": 8
+      }
+    },
+    "84": {
+      "total": 74,
+      "types": {
+        "shot": 50,
+        "hit": 17,
+        "destroyed": 7
+      }
+    },
+    "85": {
+      "total": 67,
+      "types": {
+        "shot": 47,
+        "hit": 16,
+        "destroyed": 4
+      }
+    },
+    "86": {
+      "total": 75,
+      "types": {
+        "shot": 52,
+        "hit": 16,
+        "destroyed": 7
+      }
+    },
+    "87": {
+      "total": 96,
+      "types": {
+        "shot": 71,
+        "hit": 20,
+        "destroyed": 5
+      }
+    },
+    "88": {
+      "total": 101,
+      "types": {
+        "shot": 78,
+        "hit": 19,
+        "destroyed": 4
+      }
+    },
+    "89": {
+      "total": 112,
+      "types": {
+        "shot": 80,
+        "hit": 29,
+        "destroyed": 3
+      }
+    },
+    "90": {
+      "total": 102,
+      "types": {
+        "shot": 81,
+        "hit": 19,
+        "destroyed": 2
+      }
+    },
+    "91": {
+      "total": 115,
+      "types": {
+        "shot": 85,
+        "hit": 27,
+        "destroyed": 3
+      }
+    },
+    "92": {
+      "total": 89,
+      "types": {
+        "shot": 68,
+        "hit": 19,
+        "destroyed": 2
+      }
+    },
+    "93": {
+      "total": 128,
+      "types": {
+        "shot": 91,
+        "hit": 31,
+        "destroyed": 6
+      }
+    },
+    "94": {
+      "total": 102,
+      "types": {
+        "shot": 80,
+        "hit": 20,
+        "destroyed": 2
+      }
+    },
+    "95": {
+      "total": 116,
+      "types": {
+        "shot": 90,
+        "hit": 23,
+        "destroyed": 3
+      }
+    },
+    "96": {
+      "total": 118,
+      "types": {
+        "shot": 92,
+        "hit": 24,
+        "destroyed": 2
+      }
+    },
+    "97": {
+      "total": 134,
+      "types": {
+        "shot": 97,
+        "hit": 35,
+        "destroyed": 2
+      }
+    },
+    "98": {
+      "total": 91,
+      "types": {
+        "shot": 64,
+        "hit": 24,
+        "destroyed": 3
+      }
+    },
+    "99": {
+      "total": 121,
+      "types": {
+        "shot": 89,
+        "hit": 30,
+        "destroyed": 2
+      }
+    },
+    "100": {
+      "total": 88,
+      "types": {
+        "shot": 65,
+        "hit": 19,
+        "destroyed": 4
+      }
+    },
+    "101": {
+      "total": 126,
+      "types": {
+        "shot": 95,
+        "hit": 29,
+        "destroyed": 2
+      }
+    },
+    "102": {
+      "total": 106,
+      "types": {
+        "shot": 78,
+        "hit": 23,
+        "destroyed": 5
+      }
+    },
+    "103": {
+      "total": 121,
+      "types": {
+        "shot": 88,
+        "hit": 29,
+        "destroyed": 4
+      }
+    },
+    "104": {
+      "total": 104,
+      "types": {
+        "shot": 82,
+        "hit": 22
+      }
+    },
+    "105": {
+      "total": 108,
+      "types": {
+        "shot": 84,
+        "hit": 22,
+        "destroyed": 2
+      }
+    },
+    "106": {
+      "total": 84,
+      "types": {
+        "shot": 62,
+        "hit": 19,
+        "destroyed": 3
+      }
+    },
+    "107": {
+      "total": 39,
+      "types": {
+        "shot": 30,
+        "hit": 7,
+        "destroyed": 2
+      }
+    },
+    "108": {
+      "total": 39,
+      "types": {
+        "shot": 27,
+        "hit": 10,
+        "destroyed": 2
+      }
+    },
+    "109": {
+      "total": 35,
+      "types": {
+        "shot": 27,
+        "hit": 7,
+        "destroyed": 1
+      }
+    },
+    "110": {
+      "total": 52,
+      "types": {
+        "shot": 37,
+        "hit": 12,
+        "destroyed": 3
+      }
+    },
+    "111": {
+      "total": 28,
+      "types": {
+        "shot": 24,
+        "hit": 4
+      }
+    },
+    "112": {
+      "total": 42,
+      "types": {
+        "shot": 27,
+        "hit": 12,
+        "destroyed": 3
+      }
+    },
+    "113": {
+      "total": 30,
+      "types": {
+        "shot": 20,
+        "hit": 9,
+        "destroyed": 1
+      }
+    },
+    "114": {
+      "total": 34,
+      "types": {
+        "shot": 24,
+        "hit": 8,
+        "destroyed": 2
+      }
+    },
+    "115": {
+      "total": 21,
+      "types": {
+        "shot": 14,
+        "hit": 5,
+        "destroyed": 2
+      }
+    },
+    "116": {
+      "total": 15,
+      "types": {
+        "shot": 11,
+        "hit": 3,
+        "destroyed": 1
+      }
+    },
+    "117": {
+      "total": 9,
+      "types": {
+        "shot": 7,
+        "hit": 1,
+        "destroyed": 1
+      }
+    },
+    "122": {
+      "total": 61,
+      "types": {
+        "shot": 43,
+        "hit": 17,
+        "destroyed": 1
+      }
+    },
+    "123": {
+      "total": 9,
+      "types": {
+        "shot": 6,
+        "hit": 2,
+        "destroyed": 1
+      }
+    },
+    "118": {
+      "total": 8,
+      "types": {
+        "shot": 6,
+        "hit": 2
+      }
+    },
+    "119": {
+      "total": 18,
+      "types": {
+        "shot": 15,
+        "hit": 3
+      }
+    },
+    "120": {
+      "total": 37,
+      "types": {
+        "shot": 30,
+        "hit": 7
+      }
+    },
+    "121": {
+      "total": 46,
+      "types": {
+        "shot": 37,
+        "hit": 8,
+        "destroyed": 1
+      }
+    },
+    "124": {
+      "total": 5,
+      "types": {
+        "shot": 4,
+        "hit": 1
+      }
+    },
+    "125": {
+      "total": 13,
+      "types": {
+        "shot": 9,
+        "hit": 4
+      }
+    },
+    "126": {
+      "total": 33,
+      "types": {
+        "shot": 28,
+        "hit": 4,
+        "destroyed": 1
+      }
+    },
+    "127": {
+      "total": 16,
+      "types": {
+        "shot": 11,
+        "hit": 5
+      }
+    },
+    "128": {
+      "total": 51,
+      "types": {
+        "shot": 40,
+        "hit": 11
+      }
+    },
+    "129": {
+      "total": 46,
+      "types": {
+        "shot": 34,
+        "hit": 11,
+        "destroyed": 1
+      }
+    },
+    "130": {
+      "total": 15,
+      "types": {
+        "shot": 9,
+        "hit": 5,
+        "destroyed": 1
+      }
+    },
+    "131": {
+      "total": 27,
+      "types": {
+        "shot": 20,
+        "hit": 6,
+        "destroyed": 1
+      }
+    },
+    "132": {
+      "total": 52,
+      "types": {
+        "shot": 43,
+        "hit": 9
+      }
+    },
+    "133": {
+      "total": 40,
+      "types": {
+        "shot": 31,
+        "hit": 8,
+        "destroyed": 1
+      }
+    }
+  },
+  "by_attacker": {
+    "850": {
+      "shots": 15,
+      "hits": 11,
+      "destroyed": 5,
+      "name": "M2 Bradley  #850",
+      "type": "bmp",
+      "side": "B"
+    },
+    "803": {
+      "shots": 11,
+      "hits": 8,
+      "destroyed": 7,
+      "name": "M1A2 Abrams  #803",
+      "type": "tank",
+      "side": "B"
+    },
+    "814": {
+      "shots": 14,
+      "hits": 7,
+      "destroyed": 3,
+      "name": "M2 Bradley  #814",
+      "type": "bmp",
+      "side": "B"
+    },
+    "828": {
+      "shots": 6,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "M1A2 Abrams  #828",
+      "type": "tank",
+      "side": "B"
+    },
+    "164": {
+      "shots": 16,
+      "hits": 7,
+      "destroyed": 2,
+      "name": "T-72B3 Tank  #164",
+      "type": "tank",
+      "side": "A"
+    },
+    "122": {
+      "shots": 21,
+      "hits": 10,
+      "destroyed": 5,
+      "name": "T-72B3 Tank  #122",
+      "type": "tank",
+      "side": "A"
+    },
+    "832": {
+      "shots": 18,
+      "hits": 6,
+      "destroyed": 2,
+      "name": "M2 Bradley  #832",
+      "type": "bmp",
+      "side": "B"
+    },
+    "29": {
+      "shots": 8,
+      "hits": 5,
+      "destroyed": 1,
+      "name": "BMP-2  #29",
+      "type": "bmp",
+      "side": "A"
+    },
+    "148": {
+      "shots": 8,
+      "hits": 4,
+      "destroyed": 0,
+      "name": "BTR-80  #148",
+      "type": "bmp",
+      "side": "A"
+    },
+    "62": {
+      "shots": 6,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "T-72B3 Tank  #62",
+      "type": "tank",
+      "side": "A"
+    },
+    "133": {
+      "shots": 25,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "BMP-2  #133",
+      "type": "bmp",
+      "side": "A"
+    },
+    "168": {
+      "shots": 14,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "BTR-80  #168",
+      "type": "bmp",
+      "side": "A"
+    },
+    "141": {
+      "shots": 21,
+      "hits": 11,
+      "destroyed": 9,
+      "name": "T-72B3 Tank  #141",
+      "type": "tank",
+      "side": "A"
+    },
+    "830": {
+      "shots": 29,
+      "hits": 19,
+      "destroyed": 9,
+      "name": "M1A2 Abrams  #830",
+      "type": "tank",
+      "side": "B"
+    },
+    "72": {
+      "shots": 21,
+      "hits": 10,
+      "destroyed": 2,
+      "name": "BMP-2  #72",
+      "type": "bmp",
+      "side": "A"
+    },
+    "53": {
+      "shots": 8,
+      "hits": 2,
+      "destroyed": 1,
+      "name": "BMP-2  #53",
+      "type": "bmp",
+      "side": "A"
+    },
+    "855": {
+      "shots": 31,
+      "hits": 19,
+      "destroyed": 16,
+      "name": "M1A2 Abrams  #855",
+      "type": "tank",
+      "side": "B"
+    },
+    "189": {
+      "shots": 5,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "BMP-2  #189",
+      "type": "bmp",
+      "side": "A"
+    },
+    "132": {
+      "shots": 5,
+      "hits": 4,
+      "destroyed": 1,
+      "name": "BMP-2  #132",
+      "type": "bmp",
+      "side": "A"
+    },
+    "27": {
+      "shots": 12,
+      "hits": 6,
+      "destroyed": 1,
+      "name": "BMP-2  #27",
+      "type": "bmp",
+      "side": "A"
+    },
+    "61": {
+      "shots": 45,
+      "hits": 26,
+      "destroyed": 16,
+      "name": "T-72B3 Tank  #61",
+      "type": "tank",
+      "side": "A"
+    },
+    "44": {
+      "shots": 51,
+      "hits": 30,
+      "destroyed": 20,
+      "name": "T-72B3 Tank  #44",
+      "type": "tank",
+      "side": "A"
+    },
+    "837": {
+      "shots": 37,
+      "hits": 21,
+      "destroyed": 19,
+      "name": "M1A2 Abrams  #837",
+      "type": "tank",
+      "side": "B"
+    },
+    "104": {
+      "shots": 5,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "T-72B3 Tank  #104",
+      "type": "tank",
+      "side": "A"
+    },
+    "822": {
+      "shots": 3,
+      "hits": 3,
+      "destroyed": 1,
+      "name": "M2 Bradley  #822",
+      "type": "bmp",
+      "side": "B"
+    },
+    "823": {
+      "shots": 4,
+      "hits": 3,
+      "destroyed": 1,
+      "name": "M2 Bradley  #823",
+      "type": "bmp",
+      "side": "B"
+    },
+    "839": {
+      "shots": 29,
+      "hits": 19,
+      "destroyed": 14,
+      "name": "M1A2 Abrams  #839",
+      "type": "tank",
+      "side": "B"
+    },
+    "886": {
+      "shots": 2,
+      "hits": 2,
+      "destroyed": 1,
+      "name": "M2 Bradley  #886",
+      "type": "bmp",
+      "side": "B"
+    },
+    "48": {
+      "shots": 15,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "BTR-80  #48",
+      "type": "bmp",
+      "side": "A"
+    },
+    "154": {
+      "shots": 22,
+      "hits": 8,
+      "destroyed": 0,
+      "name": "BTR-80  #154",
+      "type": "bmp",
+      "side": "A"
+    },
+    "161": {
+      "shots": 49,
+      "hits": 23,
+      "destroyed": 17,
+      "name": "T-72B3 Tank  #161",
+      "type": "tank",
+      "side": "A"
+    },
+    "813": {
+      "shots": 9,
+      "hits": 3,
+      "destroyed": 1,
+      "name": "M2 Bradley  #813",
+      "type": "bmp",
+      "side": "B"
+    },
+    "846": {
+      "shots": 12,
+      "hits": 10,
+      "destroyed": 10,
+      "name": "M1A2 Abrams  #846",
+      "type": "tank",
+      "side": "B"
+    },
+    "95": {
+      "shots": 27,
+      "hits": 13,
+      "destroyed": 3,
+      "name": "BMP-2  #95",
+      "type": "bmp",
+      "side": "A"
+    },
+    "11": {
+      "shots": 10,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "BTR-80  #11",
+      "type": "bmp",
+      "side": "A"
+    },
+    "10": {
+      "shots": 16,
+      "hits": 6,
+      "destroyed": 1,
+      "name": "BMP-2  #10",
+      "type": "bmp",
+      "side": "A"
+    },
+    "16": {
+      "shots": 41,
+      "hits": 15,
+      "destroyed": 2,
+      "name": "BMP-2  #16",
+      "type": "bmp",
+      "side": "A"
+    },
+    "36": {
+      "shots": 24,
+      "hits": 7,
+      "destroyed": 0,
+      "name": "BMP-2  #36",
+      "type": "bmp",
+      "side": "A"
+    },
+    "864": {
+      "shots": 26,
+      "hits": 19,
+      "destroyed": 17,
+      "name": "M1A2 Abrams  #864",
+      "type": "tank",
+      "side": "B"
+    },
+    "31": {
+      "shots": 4,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "BTR-80  #31",
+      "type": "bmp",
+      "side": "A"
+    },
+    "193": {
+      "shots": 99,
+      "hits": 27,
+      "destroyed": 1,
+      "name": "BMP-2  #193",
+      "type": "bmp",
+      "side": "A"
+    },
+    "96": {
+      "shots": 32,
+      "hits": 8,
+      "destroyed": 0,
+      "name": "BMP-2  #96",
+      "type": "bmp",
+      "side": "A"
+    },
+    "824": {
+      "shots": 10,
+      "hits": 7,
+      "destroyed": 1,
+      "name": "Stryker  #824",
+      "type": "bmp",
+      "side": "B"
+    },
+    "89": {
+      "shots": 22,
+      "hits": 7,
+      "destroyed": 1,
+      "name": "BMP-2  #89",
+      "type": "bmp",
+      "side": "A"
+    },
+    "33": {
+      "shots": 36,
+      "hits": 10,
+      "destroyed": 2,
+      "name": "BMP-2  #33",
+      "type": "bmp",
+      "side": "A"
+    },
+    "187": {
+      "shots": 1,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "BMP-2  #187",
+      "type": "bmp",
+      "side": "A"
+    },
+    "858": {
+      "shots": 16,
+      "hits": 4,
+      "destroyed": 2,
+      "name": "M2 Bradley  #858",
+      "type": "bmp",
+      "side": "B"
+    },
+    "74": {
+      "shots": 13,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "BTR-80  #74",
+      "type": "bmp",
+      "side": "A"
+    },
+    "101": {
+      "shots": 43,
+      "hits": 27,
+      "destroyed": 12,
+      "name": "T-72B3 Tank  #101",
+      "type": "tank",
+      "side": "A"
+    },
+    "831": {
+      "shots": 11,
+      "hits": 4,
+      "destroyed": 2,
+      "name": "M2 Bradley  #831",
+      "type": "bmp",
+      "side": "B"
+    },
+    "75": {
+      "shots": 21,
+      "hits": 7,
+      "destroyed": 2,
+      "name": "BMP-2  #75",
+      "type": "bmp",
+      "side": "A"
+    },
+    "817": {
+      "shots": 3,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "Infantry Squad  #817",
+      "type": "infantry",
+      "side": "B"
+    },
+    "804": {
+      "shots": 13,
+      "hits": 7,
+      "destroyed": 4,
+      "name": "M2 Bradley  #804",
+      "type": "bmp",
+      "side": "B"
+    },
+    "129": {
+      "shots": 4,
+      "hits": 4,
+      "destroyed": 1,
+      "name": "BMP-2  #129",
+      "type": "bmp",
+      "side": "A"
+    },
+    "198": {
+      "shots": 7,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "Infantry Squad  #198",
+      "type": "infantry",
+      "side": "A"
+    },
+    "81": {
+      "shots": 52,
+      "hits": 20,
+      "destroyed": 11,
+      "name": "T-72B3 Tank  #81",
+      "type": "tank",
+      "side": "A"
+    },
+    "162": {
+      "shots": 29,
+      "hits": 17,
+      "destroyed": 6,
+      "name": "T-72B3 Tank  #162",
+      "type": "tank",
+      "side": "A"
+    },
+    "169": {
+      "shots": 67,
+      "hits": 16,
+      "destroyed": 1,
+      "name": "BMP-2  #169",
+      "type": "bmp",
+      "side": "A"
+    },
+    "12": {
+      "shots": 63,
+      "hits": 14,
+      "destroyed": 0,
+      "name": "BMP-2  #12",
+      "type": "bmp",
+      "side": "A"
+    },
+    "90": {
+      "shots": 107,
+      "hits": 32,
+      "destroyed": 0,
+      "name": "BMP-2  #90",
+      "type": "bmp",
+      "side": "A"
+    },
+    "180": {
+      "shots": 38,
+      "hits": 6,
+      "destroyed": 0,
+      "name": "Infantry Squad  #180",
+      "type": "infantry",
+      "side": "A"
+    },
+    "111": {
+      "shots": 11,
+      "hits": 2,
+      "destroyed": 2,
+      "name": "BTR-80  #111",
+      "type": "bmp",
+      "side": "A"
+    },
+    "191": {
+      "shots": 20,
+      "hits": 6,
+      "destroyed": 0,
+      "name": "BTR-80  #191",
+      "type": "bmp",
+      "side": "A"
+    },
+    "150": {
+      "shots": 18,
+      "hits": 9,
+      "destroyed": 1,
+      "name": "BMP-2  #150",
+      "type": "bmp",
+      "side": "A"
+    },
+    "8": {
+      "shots": 16,
+      "hits": 6,
+      "destroyed": 1,
+      "name": "BTR-80  #8",
+      "type": "bmp",
+      "side": "A"
+    },
+    "51": {
+      "shots": 26,
+      "hits": 5,
+      "destroyed": 1,
+      "name": "BTR-80  #51",
+      "type": "bmp",
+      "side": "A"
+    },
+    "43": {
+      "shots": 1,
+      "hits": 1,
+      "destroyed": 1,
+      "name": "T-80BVM Tank  #43",
+      "type": "tank",
+      "side": "A"
+    },
+    "866": {
+      "shots": 27,
+      "hits": 20,
+      "destroyed": 16,
+      "name": "M1A2 Abrams  #866",
+      "type": "tank",
+      "side": "B"
+    },
+    "876": {
+      "shots": 9,
+      "hits": 5,
+      "destroyed": 2,
+      "name": "M2 Bradley  #876",
+      "type": "bmp",
+      "side": "B"
+    },
+    "126": {
+      "shots": 101,
+      "hits": 26,
+      "destroyed": 1,
+      "name": "BMP-2  #126",
+      "type": "bmp",
+      "side": "A"
+    },
+    "868": {
+      "shots": 16,
+      "hits": 9,
+      "destroyed": 3,
+      "name": "M2 Bradley  #868",
+      "type": "bmp",
+      "side": "B"
+    },
+    "84": {
+      "shots": 13,
+      "hits": 9,
+      "destroyed": 4,
+      "name": "T-72B3 Tank  #84",
+      "type": "tank",
+      "side": "A"
+    },
+    "842": {
+      "shots": 8,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "Stryker  #842",
+      "type": "bmp",
+      "side": "B"
+    },
+    "134": {
+      "shots": 6,
+      "hits": 4,
+      "destroyed": 0,
+      "name": "BTR-80  #134",
+      "type": "bmp",
+      "side": "A"
+    },
+    "851": {
+      "shots": 15,
+      "hits": 5,
+      "destroyed": 1,
+      "name": "Stryker  #851",
+      "type": "bmp",
+      "side": "B"
+    },
+    "186": {
+      "shots": 19,
+      "hits": 13,
+      "destroyed": 5,
+      "name": "BMP-2  #186",
+      "type": "bmp",
+      "side": "A"
+    },
+    "77": {
+      "shots": 8,
+      "hits": 4,
+      "destroyed": 1,
+      "name": "BTR-80  #77",
+      "type": "bmp",
+      "side": "A"
+    },
+    "123": {
+      "shots": 5,
+      "hits": 4,
+      "destroyed": 3,
+      "name": "T-80BVM Tank  #123",
+      "type": "tank",
+      "side": "A"
+    },
+    "121": {
+      "shots": 46,
+      "hits": 21,
+      "destroyed": 6,
+      "name": "T-72B3 Tank  #121",
+      "type": "tank",
+      "side": "A"
+    },
+    "107": {
+      "shots": 71,
+      "hits": 23,
+      "destroyed": 2,
+      "name": "BMP-2  #107",
+      "type": "bmp",
+      "side": "A"
+    },
+    "882": {
+      "shots": 27,
+      "hits": 19,
+      "destroyed": 17,
+      "name": "M1A2 Abrams  #882",
+      "type": "tank",
+      "side": "B"
+    },
+    "856": {
+      "shots": 9,
+      "hits": 9,
+      "destroyed": 9,
+      "name": "M1A2 Abrams  #856",
+      "type": "tank",
+      "side": "B"
+    },
+    "4": {
+      "shots": 15,
+      "hits": 4,
+      "destroyed": 3,
+      "name": "T-72B3 Tank  #4",
+      "type": "tank",
+      "side": "A"
+    },
+    "130": {
+      "shots": 97,
+      "hits": 30,
+      "destroyed": 0,
+      "name": "BMP-2  #130",
+      "type": "bmp",
+      "side": "A"
+    },
+    "885": {
+      "shots": 13,
+      "hits": 5,
+      "destroyed": 2,
+      "name": "M2 Bradley  #885",
+      "type": "bmp",
+      "side": "B"
+    },
+    "67": {
+      "shots": 21,
+      "hits": 10,
+      "destroyed": 0,
+      "name": "BMP-2  #67",
+      "type": "bmp",
+      "side": "A"
+    },
+    "32": {
+      "shots": 73,
+      "hits": 21,
+      "destroyed": 2,
+      "name": "BMP-2  #32",
+      "type": "bmp",
+      "side": "A"
+    },
+    "86": {
+      "shots": 61,
+      "hits": 18,
+      "destroyed": 0,
+      "name": "BMP-2  #86",
+      "type": "bmp",
+      "side": "A"
+    },
+    "819": {
+      "shots": 34,
+      "hits": 17,
+      "destroyed": 16,
+      "name": "M1A2 Abrams  #819",
+      "type": "tank",
+      "side": "B"
+    },
+    "826": {
+      "shots": 15,
+      "hits": 6,
+      "destroyed": 0,
+      "name": "Infantry Squad  #826",
+      "type": "infantry",
+      "side": "B"
+    },
+    "109": {
+      "shots": 25,
+      "hits": 4,
+      "destroyed": 1,
+      "name": "BMP-2  #109",
+      "type": "bmp",
+      "side": "A"
+    },
+    "120": {
+      "shots": 32,
+      "hits": 7,
+      "destroyed": 0,
+      "name": "Infantry Squad  #120",
+      "type": "infantry",
+      "side": "A"
+    },
+    "821": {
+      "shots": 24,
+      "hits": 14,
+      "destroyed": 14,
+      "name": "M1A2 Abrams  #821",
+      "type": "tank",
+      "side": "B"
+    },
+    "144": {
+      "shots": 51,
+      "hits": 31,
+      "destroyed": 11,
+      "name": "T-72B3 Tank  #144",
+      "type": "tank",
+      "side": "A"
+    },
+    "806": {
+      "shots": 5,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "Stryker  #806",
+      "type": "bmp",
+      "side": "B"
+    },
+    "857": {
+      "shots": 27,
+      "hits": 20,
+      "destroyed": 20,
+      "name": "M1A2 Abrams  #857",
+      "type": "tank",
+      "side": "B"
+    },
+    "112": {
+      "shots": 47,
+      "hits": 16,
+      "destroyed": 0,
+      "name": "BMP-2  #112",
+      "type": "bmp",
+      "side": "A"
+    },
+    "887": {
+      "shots": 3,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "Stryker  #887",
+      "type": "bmp",
+      "side": "B"
+    },
+    "135": {
+      "shots": 11,
+      "hits": 5,
+      "destroyed": 2,
+      "name": "BMP-2  #135",
+      "type": "bmp",
+      "side": "A"
+    },
+    "883": {
+      "shots": 12,
+      "hits": 8,
+      "destroyed": 4,
+      "name": "M1A2 Abrams  #883",
+      "type": "tank",
+      "side": "B"
+    },
+    "66": {
+      "shots": 84,
+      "hits": 22,
+      "destroyed": 0,
+      "name": "BMP-2  #66",
+      "type": "bmp",
+      "side": "A"
+    },
+    "170": {
+      "shots": 59,
+      "hits": 18,
+      "destroyed": 0,
+      "name": "BMP-2  #170",
+      "type": "bmp",
+      "side": "A"
+    },
+    "852": {
+      "shots": 7,
+      "hits": 4,
+      "destroyed": 0,
+      "name": "Infantry Squad  #852",
+      "type": "infantry",
+      "side": "B"
+    },
+    "136": {
+      "shots": 56,
+      "hits": 16,
+      "destroyed": 1,
+      "name": "BMP-2  #136",
+      "type": "bmp",
+      "side": "A"
+    },
+    "37": {
+      "shots": 13,
+      "hits": 2,
+      "destroyed": 1,
+      "name": "BTR-80  #37",
+      "type": "bmp",
+      "side": "A"
+    },
+    "143": {
+      "shots": 4,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "T-80BVM Tank  #143",
+      "type": "tank",
+      "side": "A"
+    },
+    "25": {
+      "shots": 3,
+      "hits": 3,
+      "destroyed": 3,
+      "name": "T-80BVM Tank  #25",
+      "type": "tank",
+      "side": "A"
+    },
+    "860": {
+      "shots": 5,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "Stryker  #860",
+      "type": "bmp",
+      "side": "B"
+    },
+    "147": {
+      "shots": 9,
+      "hits": 4,
+      "destroyed": 1,
+      "name": "BMP-2  #147",
+      "type": "bmp",
+      "side": "A"
+    },
+    "194": {
+      "shots": 3,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "BTR-80  #194",
+      "type": "bmp",
+      "side": "A"
+    },
+    "171": {
+      "shots": 24,
+      "hits": 8,
+      "destroyed": 0,
+      "name": "BTR-80  #171",
+      "type": "bmp",
+      "side": "A"
+    },
+    "152": {
+      "shots": 6,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "BMP-2  #152",
+      "type": "bmp",
+      "side": "A"
+    },
+    "87": {
+      "shots": 13,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "BMP-2  #87",
+      "type": "bmp",
+      "side": "A"
+    },
+    "56": {
+      "shots": 47,
+      "hits": 13,
+      "destroyed": 1,
+      "name": "BMP-2  #56",
+      "type": "bmp",
+      "side": "A"
+    },
+    "113": {
+      "shots": 51,
+      "hits": 16,
+      "destroyed": 3,
+      "name": "BMP-2  #113",
+      "type": "bmp",
+      "side": "A"
+    },
+    "155": {
+      "shots": 44,
+      "hits": 16,
+      "destroyed": 1,
+      "name": "BMP-2  #155",
+      "type": "bmp",
+      "side": "A"
+    },
+    "26": {
+      "shots": 62,
+      "hits": 26,
+      "destroyed": 2,
+      "name": "BMP-2  #26",
+      "type": "bmp",
+      "side": "A"
+    },
+    "88": {
+      "shots": 12,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "BTR-80  #88",
+      "type": "bmp",
+      "side": "A"
+    },
+    "39": {
+      "shots": 7,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "Infantry Squad  #39",
+      "type": "infantry",
+      "side": "A"
+    },
+    "131": {
+      "shots": 4,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "BTR-80  #131",
+      "type": "bmp",
+      "side": "A"
+    },
+    "46": {
+      "shots": 6,
+      "hits": 1,
+      "destroyed": 1,
+      "name": "BMP-2  #46",
+      "type": "bmp",
+      "side": "A"
+    },
+    "9": {
+      "shots": 14,
+      "hits": 9,
+      "destroyed": 2,
+      "name": "BMP-2  #9",
+      "type": "bmp",
+      "side": "A"
+    },
+    "847": {
+      "shots": 12,
+      "hits": 11,
+      "destroyed": 8,
+      "name": "M1A2 Abrams  #847",
+      "type": "tank",
+      "side": "B"
+    },
+    "869": {
+      "shots": 9,
+      "hits": 4,
+      "destroyed": 1,
+      "name": "Stryker  #869",
+      "type": "bmp",
+      "side": "B"
+    },
+    "865": {
+      "shots": 14,
+      "hits": 6,
+      "destroyed": 4,
+      "name": "M1A2 Abrams  #865",
+      "type": "tank",
+      "side": "B"
+    },
+    "128": {
+      "shots": 35,
+      "hits": 7,
+      "destroyed": 0,
+      "name": "BTR-80  #128",
+      "type": "bmp",
+      "side": "A"
+    },
+    "149": {
+      "shots": 54,
+      "hits": 15,
+      "destroyed": 2,
+      "name": "BMP-2  #149",
+      "type": "bmp",
+      "side": "A"
+    },
+    "816": {
+      "shots": 3,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "Infantry Squad  #816",
+      "type": "infantry",
+      "side": "B"
+    },
+    "184": {
+      "shots": 19,
+      "hits": 11,
+      "destroyed": 2,
+      "name": "T-72B3 Tank  #184",
+      "type": "tank",
+      "side": "A"
+    },
+    "174": {
+      "shots": 22,
+      "hits": 6,
+      "destroyed": 0,
+      "name": "BTR-80  #174",
+      "type": "bmp",
+      "side": "A"
+    },
+    "69": {
+      "shots": 45,
+      "hits": 10,
+      "destroyed": 0,
+      "name": "BMP-2  #69",
+      "type": "bmp",
+      "side": "A"
+    },
+    "178": {
+      "shots": 7,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "Infantry Squad  #178",
+      "type": "infantry",
+      "side": "A"
+    },
+    "172": {
+      "shots": 141,
+      "hits": 36,
+      "destroyed": 1,
+      "name": "BMP-2  #172",
+      "type": "bmp",
+      "side": "A"
+    },
+    "867": {
+      "shots": 1,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "M2 Bradley  #867",
+      "type": "bmp",
+      "side": "B"
+    },
+    "17": {
+      "shots": 12,
+      "hits": 5,
+      "destroyed": 0,
+      "name": "BTR-80  #17",
+      "type": "bmp",
+      "side": "A"
+    },
+    "102": {
+      "shots": 47,
+      "hits": 22,
+      "destroyed": 8,
+      "name": "T-72B3 Tank  #102",
+      "type": "tank",
+      "side": "A"
+    },
+    "127": {
+      "shots": 73,
+      "hits": 19,
+      "destroyed": 2,
+      "name": "BMP-2  #127",
+      "type": "bmp",
+      "side": "A"
+    },
+    "146": {
+      "shots": 42,
+      "hits": 11,
+      "destroyed": 1,
+      "name": "BMP-2  #146",
+      "type": "bmp",
+      "side": "A"
+    },
+    "158": {
+      "shots": 59,
+      "hits": 16,
+      "destroyed": 0,
+      "name": "Infantry Squad  #158",
+      "type": "infantry",
+      "side": "A"
+    },
+    "829": {
+      "shots": 9,
+      "hits": 5,
+      "destroyed": 5,
+      "name": "M1A2 Abrams  #829",
+      "type": "tank",
+      "side": "B"
+    },
+    "820": {
+      "shots": 8,
+      "hits": 4,
+      "destroyed": 3,
+      "name": "M1A2 Abrams  #820",
+      "type": "tank",
+      "side": "B"
+    },
+    "861": {
+      "shots": 56,
+      "hits": 16,
+      "destroyed": 1,
+      "name": "Infantry Squad  #861",
+      "type": "infantry",
+      "side": "B"
+    },
+    "875": {
+      "shots": 7,
+      "hits": 6,
+      "destroyed": 4,
+      "name": "M1A2 Abrams  #875",
+      "type": "tank",
+      "side": "B"
+    },
+    "801": {
+      "shots": 10,
+      "hits": 7,
+      "destroyed": 6,
+      "name": "M1A2 Abrams  #801",
+      "type": "tank",
+      "side": "B"
+    },
+    "812": {
+      "shots": 16,
+      "hits": 6,
+      "destroyed": 4,
+      "name": "M1A2 Abrams  #812",
+      "type": "tank",
+      "side": "B"
+    },
+    "881": {
+      "shots": 90,
+      "hits": 26,
+      "destroyed": 1,
+      "name": "Infantry Squad  #881",
+      "type": "infantry",
+      "side": "B"
+    },
+    "91": {
+      "shots": 101,
+      "hits": 31,
+      "destroyed": 6,
+      "name": "BTR-80  #91",
+      "type": "bmp",
+      "side": "A"
+    },
+    "825": {
+      "shots": 75,
+      "hits": 20,
+      "destroyed": 2,
+      "name": "Infantry Squad  #825",
+      "type": "infantry",
+      "side": "B"
+    },
+    "849": {
+      "shots": 9,
+      "hits": 5,
+      "destroyed": 1,
+      "name": "M2 Bradley  #849",
+      "type": "bmp",
+      "side": "B"
+    },
+    "802": {
+      "shots": 34,
+      "hits": 26,
+      "destroyed": 26,
+      "name": "M1A2 Abrams  #802",
+      "type": "tank",
+      "side": "B"
+    },
+    "848": {
+      "shots": 28,
+      "hits": 14,
+      "destroyed": 12,
+      "name": "M1A2 Abrams  #848",
+      "type": "tank",
+      "side": "B"
+    },
+    "190": {
+      "shots": 67,
+      "hits": 21,
+      "destroyed": 2,
+      "name": "BMP-2  #190",
+      "type": "bmp",
+      "side": "A"
+    },
+    "76": {
+      "shots": 50,
+      "hits": 8,
+      "destroyed": 1,
+      "name": "BMP-2  #76",
+      "type": "bmp",
+      "side": "A"
+    },
+    "156": {
+      "shots": 61,
+      "hits": 17,
+      "destroyed": 0,
+      "name": "BMP-2  #156",
+      "type": "bmp",
+      "side": "A"
+    },
+    "873": {
+      "shots": 34,
+      "hits": 20,
+      "destroyed": 17,
+      "name": "M1A2 Abrams  #873",
+      "type": "tank",
+      "side": "B"
+    },
+    "108": {
+      "shots": 13,
+      "hits": 7,
+      "destroyed": 0,
+      "name": "BTR-80  #108",
+      "type": "bmp",
+      "side": "A"
+    },
+    "166": {
+      "shots": 37,
+      "hits": 12,
+      "destroyed": 0,
+      "name": "BMP-2  #166",
+      "type": "bmp",
+      "side": "A"
+    },
+    "28": {
+      "shots": 10,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "BTR-80  #28",
+      "type": "bmp",
+      "side": "A"
+    },
+    "97": {
+      "shots": 14,
+      "hits": 6,
+      "destroyed": 0,
+      "name": "BTR-80  #97",
+      "type": "bmp",
+      "side": "A"
+    },
+    "114": {
+      "shots": 22,
+      "hits": 6,
+      "destroyed": 0,
+      "name": "BTR-80  #114",
+      "type": "bmp",
+      "side": "A"
+    },
+    "192": {
+      "shots": 37,
+      "hits": 9,
+      "destroyed": 1,
+      "name": "BMP-2  #192",
+      "type": "bmp",
+      "side": "A"
+    },
+    "52": {
+      "shots": 55,
+      "hits": 23,
+      "destroyed": 4,
+      "name": "BMP-2  #52",
+      "type": "bmp",
+      "side": "A"
+    },
+    "92": {
+      "shots": 59,
+      "hits": 13,
+      "destroyed": 1,
+      "name": "BMP-2  #92",
+      "type": "bmp",
+      "side": "A"
+    },
+    "68": {
+      "shots": 11,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "BTR-80  #68",
+      "type": "bmp",
+      "side": "A"
+    },
+    "106": {
+      "shots": 52,
+      "hits": 11,
+      "destroyed": 0,
+      "name": "BMP-2  #106",
+      "type": "bmp",
+      "side": "A"
+    },
+    "173": {
+      "shots": 54,
+      "hits": 13,
+      "destroyed": 0,
+      "name": "BMP-2  #173",
+      "type": "bmp",
+      "side": "A"
+    },
+    "35": {
+      "shots": 46,
+      "hits": 13,
+      "destroyed": 0,
+      "name": "BMP-2  #35",
+      "type": "bmp",
+      "side": "A"
+    },
+    "110": {
+      "shots": 44,
+      "hits": 9,
+      "destroyed": 0,
+      "name": "BMP-2  #110",
+      "type": "bmp",
+      "side": "A"
+    },
+    "30": {
+      "shots": 48,
+      "hits": 12,
+      "destroyed": 0,
+      "name": "BMP-2  #30",
+      "type": "bmp",
+      "side": "A"
+    },
+    "124": {
+      "shots": 44,
+      "hits": 23,
+      "destroyed": 8,
+      "name": "T-72B3 Tank  #124",
+      "type": "tank",
+      "side": "A"
+    },
+    "50": {
+      "shots": 50,
+      "hits": 12,
+      "destroyed": 0,
+      "name": "BMP-2  #50",
+      "type": "bmp",
+      "side": "A"
+    },
+    "167": {
+      "shots": 48,
+      "hits": 15,
+      "destroyed": 2,
+      "name": "BMP-2  #167",
+      "type": "bmp",
+      "side": "A"
+    },
+    "175": {
+      "shots": 44,
+      "hits": 15,
+      "destroyed": 0,
+      "name": "BMP-2  #175",
+      "type": "bmp",
+      "side": "A"
+    },
+    "880": {
+      "shots": 37,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "Infantry Squad  #880",
+      "type": "infantry",
+      "side": "B"
+    },
+    "810": {
+      "shots": 37,
+      "hits": 27,
+      "destroyed": 26,
+      "name": "M1A2 Abrams  #810",
+      "type": "tank",
+      "side": "B"
+    },
+    "834": {
+      "shots": 32,
+      "hits": 9,
+      "destroyed": 0,
+      "name": "Infantry Squad  #834",
+      "type": "infantry",
+      "side": "B"
+    },
+    "890": {
+      "shots": 33,
+      "hits": 13,
+      "destroyed": 0,
+      "name": "Infantry Squad  #890",
+      "type": "infantry",
+      "side": "B"
+    },
+    "889": {
+      "shots": 27,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "Infantry Squad  #889",
+      "type": "infantry",
+      "side": "B"
+    },
+    "41": {
+      "shots": 17,
+      "hits": 10,
+      "destroyed": 5,
+      "name": "T-72B3 Tank  #41",
+      "type": "tank",
+      "side": "A"
+    },
+    "49": {
+      "shots": 35,
+      "hits": 12,
+      "destroyed": 1,
+      "name": "BMP-2  #49",
+      "type": "bmp",
+      "side": "A"
+    },
+    "64": {
+      "shots": 35,
+      "hits": 19,
+      "destroyed": 8,
+      "name": "T-72B3 Tank  #64",
+      "type": "tank",
+      "side": "A"
+    },
+    "142": {
+      "shots": 37,
+      "hits": 21,
+      "destroyed": 8,
+      "name": "T-72B3 Tank  #142",
+      "type": "tank",
+      "side": "A"
+    },
+    "116": {
+      "shots": 45,
+      "hits": 14,
+      "destroyed": 1,
+      "name": "BMP-2  #116",
+      "type": "bmp",
+      "side": "A"
+    },
+    "853": {
+      "shots": 70,
+      "hits": 7,
+      "destroyed": 0,
+      "name": "Infantry Squad  #853",
+      "type": "infantry",
+      "side": "B"
+    },
+    "47": {
+      "shots": 26,
+      "hits": 5,
+      "destroyed": 0,
+      "name": "BMP-2  #47",
+      "type": "bmp",
+      "side": "A"
+    },
+    "15": {
+      "shots": 35,
+      "hits": 11,
+      "destroyed": 1,
+      "name": "BMP-2  #15",
+      "type": "bmp",
+      "side": "A"
+    },
+    "40": {
+      "shots": 22,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "Infantry Squad  #40",
+      "type": "infantry",
+      "side": "A"
+    },
+    "153": {
+      "shots": 33,
+      "hits": 6,
+      "destroyed": 3,
+      "name": "BMP-2  #153",
+      "type": "bmp",
+      "side": "A"
+    },
+    "1": {
+      "shots": 11,
+      "hits": 5,
+      "destroyed": 3,
+      "name": "T-72B3 Tank  #1",
+      "type": "tank",
+      "side": "A"
+    },
+    "140": {
+      "shots": 73,
+      "hits": 24,
+      "destroyed": 3,
+      "name": "Infantry Squad  #140",
+      "type": "infantry",
+      "side": "A"
+    },
+    "176": {
+      "shots": 24,
+      "hits": 12,
+      "destroyed": 1,
+      "name": "BMP-2  #176",
+      "type": "bmp",
+      "side": "A"
+    },
+    "82": {
+      "shots": 9,
+      "hits": 6,
+      "destroyed": 2,
+      "name": "T-72B3 Tank  #82",
+      "type": "tank",
+      "side": "A"
+    },
+    "179": {
+      "shots": 10,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "Infantry Squad  #179",
+      "type": "infantry",
+      "side": "A"
+    },
+    "182": {
+      "shots": 1,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "T-72B3 Tank  #182",
+      "type": "tank",
+      "side": "A"
+    },
+    "78": {
+      "shots": 2,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "Infantry Squad  #78",
+      "type": "infantry",
+      "side": "A"
+    },
+    "19": {
+      "shots": 1,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "Infantry Squad  #19",
+      "type": "infantry",
+      "side": "A"
+    },
+    "815": {
+      "shots": 2,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "Stryker  #815",
+      "type": "bmp",
+      "side": "B"
+    },
+    "38": {
+      "shots": 1,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "Infantry Squad  #38",
+      "type": "infantry",
+      "side": "A"
+    },
+    "196": {
+      "shots": 4,
+      "hits": 3,
+      "destroyed": 1,
+      "name": "BMP-2  #196",
+      "type": "bmp",
+      "side": "A"
+    },
+    "157": {
+      "shots": 9,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "BTR-80  #157",
+      "type": "bmp",
+      "side": "A"
+    },
+    "805": {
+      "shots": 15,
+      "hits": 10,
+      "destroyed": 5,
+      "name": "M2 Bradley  #805",
+      "type": "bmp",
+      "side": "B"
+    },
+    "177": {
+      "shots": 23,
+      "hits": 7,
+      "destroyed": 0,
+      "name": "BTR-80  #177",
+      "type": "bmp",
+      "side": "A"
+    },
+    "833": {
+      "shots": 2,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "Stryker  #833",
+      "type": "bmp",
+      "side": "B"
+    },
+    "151": {
+      "shots": 26,
+      "hits": 6,
+      "destroyed": 0,
+      "name": "BTR-80  #151",
+      "type": "bmp",
+      "side": "A"
+    },
+    "195": {
+      "shots": 62,
+      "hits": 15,
+      "destroyed": 0,
+      "name": "BMP-2  #195",
+      "type": "bmp",
+      "side": "A"
+    },
+    "93": {
+      "shots": 18,
+      "hits": 13,
+      "destroyed": 4,
+      "name": "BMP-2  #93",
+      "type": "bmp",
+      "side": "A"
+    },
+    "844": {
+      "shots": 5,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "Infantry Squad  #844",
+      "type": "infantry",
+      "side": "B"
+    },
+    "54": {
+      "shots": 28,
+      "hits": 10,
+      "destroyed": 0,
+      "name": "BTR-80  #54",
+      "type": "bmp",
+      "side": "A"
+    },
+    "71": {
+      "shots": 8,
+      "hits": 4,
+      "destroyed": 2,
+      "name": "BTR-80  #71",
+      "type": "bmp",
+      "side": "A"
+    },
+    "94": {
+      "shots": 29,
+      "hits": 5,
+      "destroyed": 0,
+      "name": "BTR-80  #94",
+      "type": "bmp",
+      "side": "A"
+    },
+    "841": {
+      "shots": 6,
+      "hits": 4,
+      "destroyed": 2,
+      "name": "M2 Bradley  #841",
+      "type": "bmp",
+      "side": "B"
+    },
+    "117": {
+      "shots": 39,
+      "hits": 11,
+      "destroyed": 0,
+      "name": "BTR-80  #117",
+      "type": "bmp",
+      "side": "A"
+    },
+    "73": {
+      "shots": 2,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "BMP-2  #73",
+      "type": "bmp",
+      "side": "A"
+    },
+    "877": {
+      "shots": 1,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "M2 Bradley  #877",
+      "type": "bmp",
+      "side": "B"
+    },
+    "55": {
+      "shots": 16,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "BMP-2  #55",
+      "type": "bmp",
+      "side": "A"
+    },
+    "7": {
+      "shots": 8,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "BMP-2  #7",
+      "type": "bmp",
+      "side": "A"
+    },
+    "13": {
+      "shots": 11,
+      "hits": 3,
+      "destroyed": 0,
+      "name": "BMP-2  #13",
+      "type": "bmp",
+      "side": "A"
+    },
+    "65": {
+      "shots": 2,
+      "hits": 2,
+      "destroyed": 2,
+      "name": "T-80BVM Tank  #65",
+      "type": "tank",
+      "side": "A"
+    },
+    "838": {
+      "shots": 7,
+      "hits": 4,
+      "destroyed": 3,
+      "name": "M1A2 Abrams  #838",
+      "type": "tank",
+      "side": "B"
+    },
+    "845": {
+      "shots": 3,
+      "hits": 2,
+      "destroyed": 0,
+      "name": "Infantry Squad  #845",
+      "type": "infantry",
+      "side": "B"
+    },
+    "6": {
+      "shots": 33,
+      "hits": 8,
+      "destroyed": 1,
+      "name": "BMP-2  #6",
+      "type": "bmp",
+      "side": "A"
+    },
+    "874": {
+      "shots": 6,
+      "hits": 4,
+      "destroyed": 4,
+      "name": "M1A2 Abrams  #874",
+      "type": "tank",
+      "side": "B"
+    },
+    "807": {
+      "shots": 1,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "Infantry Squad  #807",
+      "type": "infantry",
+      "side": "B"
+    },
+    "884": {
+      "shots": 3,
+      "hits": 3,
+      "destroyed": 2,
+      "name": "M1A2 Abrams  #884",
+      "type": "tank",
+      "side": "B"
+    },
+    "70": {
+      "shots": 3,
+      "hits": 2,
+      "destroyed": 1,
+      "name": "BMP-2  #70",
+      "type": "bmp",
+      "side": "A"
+    },
+    "859": {
+      "shots": 2,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "M2 Bradley  #859",
+      "type": "bmp",
+      "side": "B"
+    },
+    "870": {
+      "shots": 3,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "Infantry Squad  #870",
+      "type": "infantry",
+      "side": "B"
+    },
+    "878": {
+      "shots": 1,
+      "hits": 0,
+      "destroyed": 0,
+      "name": "Stryker  #878",
+      "type": "bmp",
+      "side": "B"
+    },
+    "14": {
+      "shots": 2,
+      "hits": 1,
+      "destroyed": 0,
+      "name": "BTR-80  #14",
+      "type": "bmp",
+      "side": "A"
+    },
+    "840": {
+      "shots": 1,
+      "hits": 1,
+      "destroyed": 1,
+      "name": "M2 Bradley  #840",
+      "type": "bmp",
+      "side": "B"
+    },
+    "85": {
+      "shots": 2,
+      "hits": 1,
+      "destroyed": 1,
+      "name": "T-80BVM Tank  #85",
+      "type": "tank",
+      "side": "A"
+    }
+  },
+  "by_unit_type": {
+    "bmp": {
+      "shots": 3972,
+      "hits": 1211,
+      "destroyed": 132
+    },
+    "tank": {
+      "shots": 1266,
+      "hits": 736,
+      "destroyed": 488
+    },
+    "infantry": {
+      "shots": 719,
+      "hits": 179,
+      "destroyed": 7
+    }
+  },
+  "by_side": {
+    "B": {
+      "shots": 1264,
+      "hits": 597,
+      "destroyed": 0,
+      "kills": 357
+    },
+    "A": {
+      "shots": 4693,
+      "hits": 1529,
+      "destroyed": 0,
+      "kills": 270
+    }
+  },
+  "statistics": {
+    "distances": {
+      "average": 1.3534799395668962,
+      "min": 0.24,
+      "max": 2.5
+    },
+    "hit_chances": {
+      "average": 0.3587755581668625
+    },
+    "damages": {
+      "average": 36.30761994355597,
+      "min": 0,
+      "max": 125.0
+    }
+  }
+}

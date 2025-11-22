@@ -1,7 +1,12 @@
 import mesa
+import logging
+from datetime import datetime
+from pathlib import Path
 from .units import create_unit
 from .rules import EngagementRules
 from .data_loader import DataLoader
+from .logging_config import SimulationLogger, PerformanceTimer
+import config
 
 
 class CombatSimulation(mesa.Model):
@@ -9,25 +14,50 @@ class CombatSimulation(mesa.Model):
     
     def __init__(self, objects_file='data/objects.xlsx', rules_file='data/sets.xlsx'):
         super().__init__()
-        
+
         self.step_count = 0
         self.objects_file = objects_file
         self.rules_file = rules_file
         self.combat_events = []  # Події бою для візуалізації
-        
+
+        # Initialize logging system
+        if config.LOGGING_ENABLED:
+            SimulationLogger.initialize(
+                log_dir=config.LOG_DIR,
+                log_level=getattr(logging, config.LOG_LEVEL),
+                enable_console=config.ENABLE_CONSOLE_OUTPUT,
+                enable_combat_log=config.DETAILED_COMBAT_LOG
+            )
+
+        self.logger = SimulationLogger.get_logger('model')
+        self.combat_logger = SimulationLogger.get_combat_logger() if config.DETAILED_COMBAT_LOG else None
+        self.perf_logger = SimulationLogger.get_performance_logger() if config.PERFORMANCE_LOGGING else None
+
+        self.logger.info("="*60)
+        self.logger.info("INITIALIZING COMBAT SIMULATION")
+        self.logger.info("="*60)
+        self.logger.info(f"Objects file: {objects_file}")
+        self.logger.info(f"Rules file: {rules_file}")
+
         # Load engagement rules
         self.engagement_rules = EngagementRules(rules_file)
-        
+
         # Load unit data and create agents
         self.data_loader = DataLoader(objects_file)
         units_data = self.data_loader.load_objects()
-        
+
+        self.logger.info(f"Loaded {len(units_data)} units")
+        side_a_count = len([u for u in units_data if u['side'] == 'A'])
+        side_b_count = len([u for u in units_data if u['side'] == 'B'])
+        self.logger.info(f"Side A: {side_a_count} units | Side B: {side_b_count} units")
+
         # Create military units
         for unit_data in units_data:
             unit = create_unit(self, unit_data)
             self.agents.add(unit)
-        
-        print(f"\nSimulation initialized with {len(self.agents)} units")
+            self.logger.debug(f"Created unit: {unit.name} ({unit.unit_type}) - Side {unit.side} at {unit.pos}")
+
+        self.logger.info(f"Simulation initialized with {len(self.agents)} units")
         self.display_status()
     
     def get_engagement_rule(self, attacker_type, target_type):
@@ -41,71 +71,91 @@ class CombatSimulation(mesa.Model):
     def step(self):
         """Execute one step of the simulation"""
         self.step_count += 1
-        
+
         # Очистити події попереднього кроку
         self.combat_events = []
 
-        print(f"\n=== Step {self.step_count} ===")
+        self.logger.info("="*60)
+        self.logger.info(f"STEP {self.step_count}")
+        self.logger.info("="*60)
+
+        # Performance timing
+        if self.perf_logger:
+            perf_timer = PerformanceTimer(self.perf_logger, f"Step {self.step_count}")
+            perf_timer.__enter__()
+        else:
+            perf_timer = None
 
         # Shuffle and execute step for each agent
         agents_list = list(self.agents)
         self.random.shuffle(agents_list)
+
         for agent in agents_list:
             agent.step()
 
+        # Stop performance timer
+        if perf_timer:
+            perf_timer.__exit__(None, None, None)
+
+        # Calculate statistics
         shots = len([e for e in self.combat_events if e['type'] == 'shot'])
         hits = len([e for e in self.combat_events if e['type'] == 'hit'])
         kills = len([e for e in self.combat_events if e['type'] == 'destroyed'])
-        
-        print(f"Shots: {shots}, Hits: {hits}, Kills: {kills}")
-        print(f"Side A: {len([a for a in self.agents if a.side == 'A' and a.is_alive])} alive")
-        print(f"Side B: {len([a for a in self.agents if a.side == 'B' and a.is_alive])} alive")    
-        
+
+        side_a_alive = len([a for a in self.agents if a.side == 'A' and a.is_alive])
+        side_b_alive = len([a for a in self.agents if a.side == 'B' and a.is_alive])
+
+        self.logger.info(f"Combat events: {shots} shots, {hits} hits, {kills} destroyed")
+        self.logger.info(f"Forces alive - Side A: {side_a_alive} | Side B: {side_b_alive}")
+
         # Check if simulation should continue
-        side_a_alive = any(agent.is_alive and agent.side == 'A' for agent in self.agents)
-        side_b_alive = any(agent.is_alive and agent.side == 'B' for agent in self.agents)
-        
-        if not side_a_alive or not side_b_alive:
+        if side_a_alive == 0 or side_b_alive == 0:
             self.running = False
-            print(f"\n=== Simulation ended at step {self.step_count} ===")
-            if not side_a_alive:
-                print("Side B VICTORY")
-            else:
-                print("Side A VICTORY")    
-        
-        if not side_a_alive or not side_b_alive:
-            self.running = False
-            print(f"\n{'='*60}")
-            print(f"SIMULATION ENDED AT STEP {self.step_count}")
-            print(f"{'='*60}")
-            
-            winner = 'Side B' if not side_a_alive else 'Side A'
-            print(f"WINNER: {winner}\n")
-            
+            winner = 'Side B' if side_a_alive == 0 else 'Side A'
+
+            self.logger.info("="*60)
+            self.logger.critical(f"SIMULATION ENDED AT STEP {self.step_count}")
+            self.logger.critical(f"WINNER: {winner}")
+            self.logger.info("="*60)
+
             # Детальна статистика
             self.print_final_statistics()
 
+            # Автоматичний аналіз логів після завершення
+            self.run_post_simulation_analysis()
+
     def print_final_statistics(self):
         """Print detailed end-of-battle statistics"""
-        print("\n=== FINAL STATISTICS ===\n")
-        
+        self.logger.info("")
+        self.logger.info("="*60)
+        self.logger.info("FINAL STATISTICS")
+        self.logger.info("="*60)
+
         for side in ['A', 'B']:
             units = [a for a in self.agents if a.side == side]
             alive = [a for a in units if a.is_alive]
-            
-            print(f"Side {side}:")
-            print(f"  Survived: {len(alive)}/{len(units)}")
-            print(f"  Total kills: {sum(u.kills for u in units)}")
-            print(f"  Total shots: {sum(u.shots_fired for u in units)}")
-            print(f"  Total hits: {sum(u.hits_landed for u in units)}")
-            
+            total_kills = sum(u.kills for u in units)
+            total_shots = sum(u.shots_fired for u in units)
+            total_hits = sum(u.hits_landed for u in units)
+            accuracy = (total_hits / total_shots * 100) if total_shots > 0 else 0
+
+            self.logger.info("")
+            self.logger.info(f"Side {side}:")
+            self.logger.info(f"  Survived: {len(alive)}/{len(units)}")
+            self.logger.info(f"  Total kills: {total_kills}")
+            self.logger.info(f"  Total shots: {total_shots}, Hits: {total_hits}")
+            self.logger.info(f"  Overall accuracy: {accuracy:.1f}%")
+
             # Top killers
             top_killers = sorted(units, key=lambda u: u.kills, reverse=True)[:3]
-            print(f"  Top killers:")
-            for u in top_killers:
-                if u.kills > 0:
-                    print(f"    - {u.name}: {u.kills} kills, {u.hits_landed}/{u.shots_fired} accuracy")
-            print()
+            if any(u.kills > 0 for u in top_killers):
+                self.logger.info("  Top performers:")
+                for u in top_killers:
+                    if u.kills > 0:
+                        unit_accuracy = (u.hits_landed / u.shots_fired * 100) if u.shots_fired > 0 else 0
+                        self.logger.info(f"    - {u.name}: {u.kills} kills, {unit_accuracy:.1f}% accuracy ({u.hits_landed}/{u.shots_fired})")
+
+        self.logger.info("="*60)
 
     # Метод для логування подій:
     def log_combat_event(self, event_type, attacker, target, success=False):
@@ -191,21 +241,17 @@ class CombatSimulation(mesa.Model):
     
     def display_status(self):
         """Display current simulation status"""
-        print(f"\n=== Step {self.step_count} ===")
-        
+        self.logger.info(f"Current simulation status at step {self.step_count}")
+
         for side in ['A', 'B']:
             units = [a for a in self.agents if a.side == side]
             alive = [a for a in units if a.is_alive]
             total_kills = sum(a.kills for a in units)
             total_shots = sum(a.shots_fired for a in units)
             total_hits = sum(a.hits_landed for a in units)
-            
-            print(f"\nSide {side}:")
-            print(f"  Alive: {len(alive)}/{len(units)}")
-            print(f"  Kills: {total_kills}")
-            print(f"  Shots: {total_shots}, Hits: {total_hits}")
-            if total_shots > 0:
-                print(f"  Overall Accuracy: {(total_hits/total_shots*100):.1f}%")
+            accuracy = (total_hits / total_shots * 100) if total_shots > 0 else 0
+
+            self.logger.info(f"Side {side}: {len(alive)}/{len(units)} alive, {total_kills} kills, {accuracy:.1f}% accuracy")
     
     def get_statistics(self):
         """Get detailed statistics for the simulation"""
@@ -245,5 +291,37 @@ class CombatSimulation(mesa.Model):
                 }
             
             stats['sides'][side] = side_stats
-        
+
         return stats
+
+    def run_post_simulation_analysis(self):
+        """Запустити автоматичний аналіз логів після завершення симуляції"""
+        try:
+            # Імпортувати аналізатор
+            import sys
+            from pathlib import Path
+            tools_path = Path(__file__).parent.parent / 'tools'
+            if str(tools_path) not in sys.path:
+                sys.path.insert(0, str(tools_path))
+
+            from log_analyzer import analyze_latest_log
+
+            # Генерувати ім'я файлу з timestamp
+            timestamp = datetime.now().strftime('%d_%m_%Y_%H_%M_%S')
+            output_file = Path(config.LOG_DIR) / f'analysis_{timestamp}.txt'
+
+            self.logger.info("="*60)
+            self.logger.info("RUNNING POST-SIMULATION ANALYSIS")
+            self.logger.info("="*60)
+            self.logger.info(f"Analysis output: {output_file}")
+
+            # Запустити аналіз
+            success = analyze_latest_log(output_txt=str(output_file))
+
+            if success:
+                self.logger.info(f"Analysis completed successfully: {output_file}")
+            else:
+                self.logger.warning("Analysis failed or produced no output")
+
+        except Exception as e:
+            self.logger.error(f"Error running post-simulation analysis: {e}", exc_info=True)

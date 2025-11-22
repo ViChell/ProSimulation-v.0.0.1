@@ -46,9 +46,13 @@ SIDE_COLORS = {
     'B': '#ff3333'   # Red
 }
 
-# Performance settings
-ENABLE_COMBAT_LOG = False  # Set to True for detailed combat logging
-LOG_LEVEL = 'INFO'  # DEBUG, INFO, WARNING, ERROR
+# Logging configuration
+LOGGING_ENABLED = True  # Enable/disable logging system
+LOG_DIR = os.path.join(BASE_DIR, 'logs')  # Directory for all log files
+LOG_LEVEL = 'INFO'  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+ENABLE_CONSOLE_OUTPUT = False  # Console output (can slow down, disable for production)
+DETAILED_COMBAT_LOG = True  # Log every combat event to JSON file
+PERFORMANCE_LOGGING = False  # Log performance metrics (enable for optimization)
 
 # Database settings (for future expansion)
 DATABASE_ENABLED = False

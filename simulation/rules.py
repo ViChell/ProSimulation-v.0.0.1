@@ -1,25 +1,29 @@
 import pandas as pd
+from .logging_config import SimulationLogger
 
 
 class EngagementRules:
     """Manages combat engagement rules loaded from Excel"""
-    
+
     def __init__(self, filepath='data/sets.xlsx'):
         self.filepath = filepath
         self.rules = {}
         self.modifiers = {}
+        self.logger = SimulationLogger.get_logger('rules')
         self.load_rules()
     
     def load_rules(self):
         """Load engagement rules from Excel file"""
         try:
+            self.logger.info(f"Loading engagement rules from {self.filepath}")
+
             # Load engagement rules
             rules_df = pd.read_excel(self.filepath, sheet_name='Engagement_Rules')
-            
+
             for _, row in rules_df.iterrows():
                 attacker = row['Attacker_Type']
                 target = row['Target_Type']
-                
+
                 key = (attacker, target)
                 self.rules[key] = {
                     'base_hit_probability': row['Base_Hit_Probability'],
@@ -29,7 +33,14 @@ class EngagementRules:
                     'priority': row['Engagement_Priority'],
                     'notes': row['Notes']
                 }
-            
+
+                self.logger.debug(
+                    f"Rule: {attacker} -> {target}: "
+                    f"hit={row['Base_Hit_Probability']:.2f}, "
+                    f"dmg={row['Damage_Multiplier']:.2f}, "
+                    f"range=[{row['Min_Range']:.1f}-{row['Max_Range']:.1f}]"
+                )
+
             # Load combat modifiers
             try:
                 modifiers_df = pd.read_excel(self.filepath, sheet_name='Combat_Modifiers', skiprows=1)
@@ -39,14 +50,14 @@ class EngagementRules:
                         'multiplier': row['Effect_Multiplier'],
                         'description': row['Description']
                     }
-            except:
-                print("Warning: Combat_Modifiers sheet not found or could not be loaded")
-            
-            print(f"Loaded {len(self.rules)} engagement rules")
-            print(f"Loaded {len(self.modifiers)} combat modifiers")
-            
+                self.logger.info(f"Loaded {len(self.modifiers)} combat modifiers")
+            except Exception as e:
+                self.logger.warning(f"Combat_Modifiers sheet not found or could not be loaded: {e}")
+
+            self.logger.info(f"Successfully loaded {len(self.rules)} engagement rules")
+
         except Exception as e:
-            print(f"Error loading engagement rules: {e}")
+            self.logger.error(f"Error loading engagement rules: {e}", exc_info=True)
             self.rules = {}
             self.modifiers = {}
     

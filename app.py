@@ -3,8 +3,11 @@ from flask_cors import CORS
 import sqlite3
 import io
 import os
+import signal
+import sys
 
 from simulation.model import CombatSimulation
+from simulation.logging_config import SimulationLogger
 import config
 
 app = Flask(__name__)
@@ -198,9 +201,33 @@ def api_config():
         }
     })
 
+def cleanup_logging():
+    """Gracefully shutdown logging system"""
+    try:
+        SimulationLogger.shutdown()
+    except Exception as e:
+        print(f"Error during logging shutdown: {e}")
+
+
+def signal_handler(signum, frame):
+    """Handle shutdown signals"""
+    print("\nShutting down gracefully...")
+    cleanup_logging()
+    sys.exit(0)
+
+
 if __name__ == '__main__':
-    app.run(
-        host=config.FLASK_HOST,
-        port=config.FLASK_PORT,
-        debug=config.DEBUG
-    )
+    # Register signal handlers for graceful shutdown
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+
+    try:
+        app.run(
+            host=config.FLASK_HOST,
+            port=config.FLASK_PORT,
+            debug=config.DEBUG,
+            use_reloader=False  # Вимкнути reloader щоб уникнути подвійної ініціалізації
+        )
+    finally:
+        # Cleanup при нормальному завершенні
+        cleanup_logging()

@@ -1,18 +1,21 @@
 import pandas as pd
+from .logging_config import SimulationLogger
 
 
 class DataLoader:
     """Loads military unit data from Excel files"""
-    
+
     def __init__(self, objects_file='data/objects.xlsx'):
         self.objects_file = objects_file
         self.units_data = []
+        self.logger = SimulationLogger.get_logger('data_loader')
     
     def load_objects(self):
         """Load unit objects from Excel file"""
         try:
+            self.logger.info(f"Loading units from {self.objects_file}")
             df = pd.read_excel(self.objects_file, sheet_name='Objects')
-            
+
             self.units_data = []
             for _, row in df.iterrows():
                 unit_data = {
@@ -33,19 +36,38 @@ class DataLoader:
                     'personnel_count': int(row['Personnel_Count'])
                 }
                 self.units_data.append(unit_data)
-            
-            print(f"Loaded {len(self.units_data)} units from {self.objects_file}")
-            
+
+                self.logger.debug(
+                    f"Loaded unit: {unit_data['name']} ({unit_data['type']}) - "
+                    f"Side {unit_data['side']}, HP={unit_data['hp']}, "
+                    f"Range={unit_data['range']}km"
+                )
+
             # Display summary
             side_a = sum(1 for u in self.units_data if u['side'] == 'A')
             side_b = sum(1 for u in self.units_data if u['side'] == 'B')
-            print(f"  Side A: {side_a} units")
-            print(f"  Side B: {side_b} units")
-            
+
+            self.logger.info(f"Successfully loaded {len(self.units_data)} units")
+            self.logger.info(f"  Side A: {side_a} units")
+            self.logger.info(f"  Side B: {side_b} units")
+
+            # Log unit type distribution
+            types_a = {}
+            types_b = {}
+            for u in self.units_data:
+                unit_type = u['type']
+                if u['side'] == 'A':
+                    types_a[unit_type] = types_a.get(unit_type, 0) + 1
+                else:
+                    types_b[unit_type] = types_b.get(unit_type, 0) + 1
+
+            self.logger.debug(f"Side A composition: {types_a}")
+            self.logger.debug(f"Side B composition: {types_b}")
+
             return self.units_data
-            
+
         except Exception as e:
-            print(f"Error loading objects: {e}")
+            self.logger.error(f"Error loading objects: {e}", exc_info=True)
             return []
     
     def get_units_by_side(self, side):

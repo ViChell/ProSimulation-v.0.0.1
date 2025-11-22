@@ -1,0 +1,69 @@
+======================================================================
+                         COMBAT LOG ANALYSIS
+======================================================================
+
+📊 GENERAL STATISTICS
+----------------------------------------------------------------------
+Total events:        4853
+Total steps:         119
+
+Events by type:
+  destroyed      :    439
+  hit            :   1240
+  shot           :   3174
+
+🎯 STATISTICS BY SIDE
+----------------------------------------------------------------------
+
+Side A:
+  Shots fired:     2356
+  Hits landed:     827
+  Accuracy:        35.1%
+  Enemy destroyed: 180
+
+Side B:
+  Shots fired:     818
+  Hits landed:     413
+  Accuracy:        50.5%
+  Enemy destroyed: 259
+
+🔫 STATISTICS BY UNIT TYPE
+----------------------------------------------------------------------
+Type               Shots     Hits    Kills   Accuracy
+----------------------------------------------------------------------
+bmp                 1859      607       85      32.7%
+infantry             435      115        4      26.4%
+tank                 880      518      350      58.9%
+
+🏆 TOP PERFORMERS
+----------------------------------------------------------------------
+Rank   Name                 Type       Side     Kills    Acc%
+----------------------------------------------------------------------
+1      M1A2 Abrams  #802    tank       B           26   76.5%
+2      M1A2 Abrams  #873    tank       B           17   58.8%
+3      M1A2 Abrams  #857    tank       B           16   69.6%
+4      M1A2 Abrams  #864    tank       B           15   76.2%
+5      T-72B3 Tank  #61     tank       A           14   63.9%
+6      T-72B3 Tank  #44     tank       A           14   67.7%
+7      M1A2 Abrams  #855    tank       B           13   68.2%
+8      M1A2 Abrams  #837    tank       B           13   63.6%
+9      M1A2 Abrams  #819    tank       B           12   50.0%
+10     M1A2 Abrams  #848    tank       B           12   50.0%
+
+📏 DISTANCE STATISTICS
+----------------------------------------------------------------------
+Average engagement distance: 1.39 km
+Minimum distance:            0.24 km
+Maximum distance:            2.50 km
+
+🎲 HIT CHANCE STATISTICS
+----------------------------------------------------------------------
+Average hit chance: 39.1%
+
+💥 DAMAGE STATISTICS
+----------------------------------------------------------------------
+Average damage: 43.8
+Minimum damage: 0.0
+Maximum damage: 125.0
+
+======================================================================
