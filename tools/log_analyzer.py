@@ -273,7 +273,7 @@ def analyze_latest_log(output_txt=None):
         return False
 
     json_files = list(log_dir.glob('combat_*.json'))
-    json_files = [f for f in json_files if 'summary' not in f.name and 'latest' not in f.name]
+    json_files = [f for f in json_files if 'summary' not in f.name and 'latest' not in f.name and 'analysis' not in f.name]
 
     if not json_files:
         print("Error: No combat log files found")
@@ -313,7 +313,7 @@ def main():
         log_dir = Path('logs/combat')
         if log_dir.exists():
             json_files = list(log_dir.glob('combat_*.json'))
-            json_files = [f for f in json_files if 'summary' not in f.name and 'latest' not in f.name]
+            json_files = [f for f in json_files if 'summary' not in f.name and 'latest' not in f.name and 'analysis' not in f.name]
             if json_files:
                 # Сортувати за часом модифікації
                 log_file = max(json_files, key=lambda f: f.stat().st_mtime)

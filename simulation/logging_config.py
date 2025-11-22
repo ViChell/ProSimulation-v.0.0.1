@@ -23,6 +23,9 @@ class AsyncCombatLogger:
         self.session_id = session_id
         self.file_path = self.log_dir / 'combat' / f'combat_{session_id}.json'
 
+        print(f"Initializing AsyncCombatLogger for session: {session_id}")
+        print(f"Combat log will be written to: {self.file_path.absolute()}")
+
         # Черга для асинхронного запису
         self.queue = Queue()
         self.running = True
@@ -63,21 +66,36 @@ class AsyncCombatLogger:
 
     def _writer_worker(self):
         """Worker thread що записує події на диск"""
-        with open(self.file_path, 'w', encoding='utf-8') as f:
-            while self.running or not self.queue.empty():
-                try:
-                    # Отримати подію з черги (timeout щоб перевіряти running)
-                    event = self.queue.get(timeout=0.1)
+        try:
+            # Переконатися що директорія існує
+            self.file_path.parent.mkdir(parents=True, exist_ok=True)
 
-                    # Записати на диск
-                    f.write(json.dumps(event, ensure_ascii=False) + '\n')
-                    f.flush()  # Гарантувати запис
+            print(f"Combat logger writing to: {self.file_path}")
 
-                    self.queue.task_done()
+            with open(self.file_path, 'w', encoding='utf-8') as f:
+                events_written = 0
+                while self.running or not self.queue.empty():
+                    try:
+                        # Отримати подію з черги (timeout щоб перевіряти running)
+                        event = self.queue.get(timeout=0.1)
 
-                except:
-                    # Timeout - черга порожня
-                    continue
+                        # Записати на диск
+                        f.write(json.dumps(event, ensure_ascii=False) + '\n')
+                        f.flush()  # Гарантувати запис
+                        events_written += 1
+
+                        self.queue.task_done()
+
+                    except:
+                        # Timeout - черга порожня
+                        continue
+
+                print(f"Combat logger finished: {events_written} events written to {self.file_path}")
+
+        except Exception as e:
+            print(f"ERROR in combat logger writer thread: {e}")
+            import traceback
+            traceback.print_exc()
 
     def log_event(self, event_type, step, attacker, target, **kwargs):
         """
@@ -123,6 +141,10 @@ class AsyncCombatLogger:
             self.stats['total_events'] += 1
             if event_type in self.stats:
                 self.stats[event_type] += 1
+
+            # Діагностика кожні 100 подій
+            if self.stats['total_events'] % 100 == 0:
+                print(f"Combat logger: {self.stats['total_events']} events queued (queue size: {self.queue.qsize()})")
 
     def get_stats(self):
         """Отримати статистику подій"""
@@ -386,6 +408,13 @@ class SimulationLogger:
     def get_performance_logger(cls):
         """Отримати логер метрик продуктивності"""
         return cls.get_logger('performance')
+
+    @classmethod
+    def reset(cls):
+        """Скинути систему логування для нової симуляції"""
+        if cls._initialized:
+            cls.shutdown()
+        # Тепер можна ініціалізувати заново з новим session_id
 
     @classmethod
     def shutdown(cls):

@@ -11,7 +11,7 @@ import config
 
 class CombatSimulation(mesa.Model):
     """Main simulation model for combat operations"""
-    
+
     def __init__(self, objects_file='data/objects.xlsx', rules_file='data/sets.xlsx'):
         super().__init__()
 
@@ -19,9 +19,15 @@ class CombatSimulation(mesa.Model):
         self.objects_file = objects_file
         self.rules_file = rules_file
         self.combat_events = []  # Події бою для візуалізації
+        self._analysis_completed = False  # Прапорець для запобігання дублюванню аналізу
+        self._analysis_timestamp = None  # Timestamp для аналізу (генерується один раз)
 
         # Initialize logging system
         if config.LOGGING_ENABLED:
+            # Скинути попередню систему логування якщо існує
+            SimulationLogger.reset()
+
+            # Ініціалізувати нову сесію з унікальним timestamp
             SimulationLogger.initialize(
                 log_dir=config.LOG_DIR,
                 log_level=getattr(logging, config.LOG_LEVEL),
@@ -29,9 +35,13 @@ class CombatSimulation(mesa.Model):
                 enable_combat_log=config.DETAILED_COMBAT_LOG
             )
 
-        self.logger = SimulationLogger.get_logger('model')
-        self.combat_logger = SimulationLogger.get_combat_logger() if config.DETAILED_COMBAT_LOG else None
-        self.perf_logger = SimulationLogger.get_performance_logger() if config.PERFORMANCE_LOGGING else None
+            self.logger = SimulationLogger.get_logger('model')
+            self.combat_logger = SimulationLogger.get_combat_logger()
+            self.perf_logger = SimulationLogger.get_performance_logger() if config.PERFORMANCE_LOGGING else None
+        else:
+            self.logger = logging.getLogger('combat_sim.model')
+            self.combat_logger = None
+            self.perf_logger = None
 
         self.logger.info("="*60)
         self.logger.info("INITIALIZING COMBAT SIMULATION")
@@ -296,19 +306,56 @@ class CombatSimulation(mesa.Model):
 
     def run_post_simulation_analysis(self):
         """Запустити автоматичний аналіз логів після завершення симуляції"""
+        # Генерувати timestamp один раз при першому виклику
+        if self._analysis_timestamp is None:
+            self._analysis_timestamp = datetime.now().strftime('%d_%m_%Y_%H_%M_%S')
+            self.logger.info(f"Starting post-simulation analysis with timestamp: {self._analysis_timestamp}")
+
+        # Перевірка чи аналіз вже був виконаний
+        if self._analysis_completed:
+            self.logger.warning(f"Analysis already completed at {self._analysis_timestamp}, skipping duplicate run")
+
+            # Вивести stack trace щоб знайти звідки викликається повторно
+            import traceback
+            self.logger.debug("Duplicate analysis call stack trace:")
+            for line in traceback.format_stack()[:-1]:
+                self.logger.debug(line.strip())
+            return
+
         try:
+            import time
+
+            # Дочекатись поки combat logger завершить запис подій
+            if self.combat_logger:
+                queue_size = self.combat_logger.queue.qsize()
+                self.logger.info(f"Waiting for combat logger to flush {queue_size} events...")
+
+                max_wait = 10.0  # Максимум 10 секунд
+                start_time = time.time()
+
+                # Чекати поки черга спорожніє
+                while not self.combat_logger.queue.empty() and (time.time() - start_time) < max_wait:
+                    remaining = self.combat_logger.queue.qsize()
+                    if remaining > 0:
+                        self.logger.debug(f"Combat logger queue: {remaining} events remaining")
+                    time.sleep(0.1)
+
+                # Додатковий час для гарантії запису на диск
+                time.sleep(0.5)
+
+                elapsed = time.time() - start_time
+                self.logger.info(f"Combat logger flushed in {elapsed:.2f}s")
+
             # Імпортувати аналізатор
             import sys
-            from pathlib import Path
             tools_path = Path(__file__).parent.parent / 'tools'
             if str(tools_path) not in sys.path:
                 sys.path.insert(0, str(tools_path))
 
             from log_analyzer import analyze_latest_log
 
-            # Генерувати ім'я файлу з timestamp
-            timestamp = datetime.now().strftime('%d_%m_%Y_%H_%M_%S')
-            output_file = Path(config.LOG_DIR) / f'analysis_{timestamp}.txt'
+            # Використати попередньо згенерований timestamp
+            output_file = Path(config.LOG_DIR) / f'analysis_{self._analysis_timestamp}.txt'
 
             self.logger.info("="*60)
             self.logger.info("RUNNING POST-SIMULATION ANALYSIS")
@@ -320,8 +367,12 @@ class CombatSimulation(mesa.Model):
 
             if success:
                 self.logger.info(f"Analysis completed successfully: {output_file}")
+                self._analysis_completed = True  # Позначити що аналіз завершено
             else:
                 self.logger.warning("Analysis failed or produced no output")
 
         except Exception as e:
             self.logger.error(f"Error running post-simulation analysis: {e}", exc_info=True)
+        finally:
+            # Завжди позначати як завершений, щоб уникнути повторних спроб при помилках
+            self._analysis_completed = True
