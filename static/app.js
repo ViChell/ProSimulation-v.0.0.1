@@ -7,6 +7,11 @@ let unitMarkers = new Map(); // Зберігаємо маркери юнітів
 let destroyedUnits = new Set(); // Відстежуємо знищені юніти
 // let activeAnimations = []; // Активні анімації??
 
+// Multiple simulations support
+let multiSimRunning = false;
+let currentSimulation = 0;
+let totalSimulations = 1;
+
 // Icon paths for different unit types
 const ICON_PATHS = {
     'tank': '/static/icons/tank.png',
@@ -442,17 +447,36 @@ async function stepSimulation() {
     try {
         const response = await fetch('/api/step', { method: 'POST' });
         const result = await response.json();
-        
+
         if (result.status === 'success') {
             console.log(`Step ${result.step}: A=${result.statistics.sides.A.alive}, B=${result.statistics.sides.B.alive}`);
             if (result.data.events && result.data.events.length > 0) {
                 console.log(`Events: ${result.data.events.length}`);
             }
             await updateUnits();
-            
+
             if (!result.running && autoplay) {
                 toggleAutoplay();
-                showFinalStatistics(result.statistics);
+
+                // Якщо запущено множинні симуляції
+                if (multiSimRunning && currentSimulation < totalSimulations) {
+                    console.log(`Simulation ${currentSimulation}/${totalSimulations} completed`);
+                    updateProgress();
+
+                    // Запустити наступну симуляцію після невеликої паузи
+                    setTimeout(async () => {
+                        await runNextSimulation();
+                    }, 1000);
+                } else {
+                    // Остання або єдина симуляція завершена
+                    if (multiSimRunning) {
+                        console.log(`All ${totalSimulations} simulations completed!`);
+                        multiSimRunning = false;
+                        updateProgress();
+                    }
+                    // Не показувати alert
+                    // showFinalStatistics(result.statistics);
+                }
             }
         }
     } catch (error) {
@@ -488,10 +512,20 @@ Side B (Red):
 function toggleAutoplay() {
     autoplay = !autoplay;
     const btn = document.getElementById('playBtn');
-    
+
     if (autoplay) {
         btn.textContent = '⏸️ Pause';
         btn.classList.add('playing');
+
+        // Якщо це перший запуск і кількість > 1, ініціалізувати множинні симуляції
+        if (!multiSimRunning && !intervalId) {
+            const count = parseInt(document.getElementById('simulationCount').value) || 1;
+            if (count > 1) {
+                startMultipleSimulations(count);
+                return; // startMultipleSimulations сам запустить autoplay
+            }
+        }
+
         const speed = parseInt(document.getElementById('speed').value);
         intervalId = setInterval(stepSimulation, speed);
     } else {
@@ -501,15 +535,84 @@ function toggleAutoplay() {
     }
 }
 
+// Start multiple simulations
+async function startMultipleSimulations(count) {
+    multiSimRunning = true;
+    totalSimulations = count;
+    currentSimulation = 0;
+
+    console.log(`Starting ${count} simulations...`);
+
+    // Показати progress bar
+    document.getElementById('progressRow').style.display = 'block';
+    updateProgress();
+
+    // Запустити першу симуляцію
+    await runNextSimulation();
+}
+
+// Run next simulation in sequence
+async function runNextSimulation() {
+    currentSimulation++;
+    console.log(`Starting simulation ${currentSimulation}/${totalSimulations}`);
+
+    updateProgress();
+
+    // Reset симуляція
+    await resetSimulationSilent();
+
+    // Почекати трохи після reset
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // Запустити autoplay
+    autoplay = true;
+    const btn = document.getElementById('playBtn');
+    btn.textContent = '⏸️ Pause';
+    btn.classList.add('playing');
+    const speed = parseInt(document.getElementById('speed').value);
+    intervalId = setInterval(stepSimulation, speed);
+}
+
+// Update progress bar
+function updateProgress() {
+    const progressText = document.getElementById('progressText');
+    const progressBar = document.getElementById('progressBar');
+
+    progressText.textContent = `${currentSimulation} / ${totalSimulations}`;
+
+    const percentage = (currentSimulation / totalSimulations) * 100;
+    progressBar.style.width = `${percentage}%`;
+
+    // Сховати якщо завершено
+    if (!multiSimRunning || currentSimulation >= totalSimulations) {
+        setTimeout(() => {
+            if (!multiSimRunning) {
+                document.getElementById('progressRow').style.display = 'none';
+            }
+        }, 2000);
+    }
+}
+
 // Reset simulation
 async function resetSimulation() {
+    // Скинути прогрес множинних симуляцій
+    multiSimRunning = false;
+    currentSimulation = 0;
+    totalSimulations = 1;
+    document.getElementById('progressRow').style.display = 'none';
+
     if (autoplay) toggleAutoplay();
-    
+
+    await resetSimulationSilent();
+}
+
+// Reset simulation without stopping autoplay (for multiple simulations)
+async function resetSimulationSilent() {
     // Clear all markers
     unitMarkers.forEach(marker => marker.remove());
     unitMarkers.clear();
     destroyedUnits.clear();
-        
+
     // Clear shot lines
     if (map.getSource('shots')) {
         map.getSource('shots').setData({
@@ -521,7 +624,7 @@ async function resetSimulation() {
     try {
         const response = await fetch('/api/reset', { method: 'POST' });
         const result = await response.json();
-        
+
         if (result.status === 'success') {
             await updateUnits();
         }
