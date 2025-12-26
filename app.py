@@ -201,6 +201,77 @@ def api_config():
         }
     })
 
+@app.route('/api/consolidate', methods=['POST'])
+def api_consolidate():
+    """Run consolidated analysis on all simulations"""
+    try:
+        from pathlib import Path
+        tools_path = Path(__file__).parent / 'tools'
+        if str(tools_path) not in sys.path:
+            sys.path.insert(0, str(tools_path))
+        from consolidate_analysis import ConsolidatedAnalyzer
+
+        analyzer = ConsolidatedAnalyzer(logs_dir='logs')
+
+        # Find and load analysis files
+        count = analyzer.find_analysis_files()
+        if count == 0:
+            return jsonify({
+                'status': 'error',
+                'message': 'No analysis files found'
+            }), 404
+
+        valid_count = analyzer.load_all_data()
+        if valid_count == 0:
+            return jsonify({
+                'status': 'error',
+                'message': 'No valid simulation data found'
+            }), 404
+
+        # Calculate statistics
+        stats = analyzer.calculate_statistics()
+        if not stats:
+            return jsonify({
+                'status': 'error',
+                'message': 'Failed to calculate statistics'
+            }), 500
+
+        # Generate report
+        output_file = analyzer.generate_report(stats)
+
+        # Безпечно отримати статистику переможців
+        winner_stats = stats.get('winners', {})
+        side_a_wins = winner_stats.get('A', 0)
+        side_b_wins = winner_stats.get('B', 0)
+
+        # Безпечно отримати середні кроки
+        avg_steps = 0
+        if 'overall' in stats and 'total_events' in stats['overall']:
+            avg_steps = stats['overall']['total_events'].get('mean', 0)
+
+        return jsonify({
+            'status': 'success',
+            'message': f'Consolidated analysis completed',
+            'data': {
+                'total_simulations': valid_count,
+                'report_file': str(output_file),
+                'winner_stats': {
+                    'side_a_wins': side_a_wins,
+                    'side_b_wins': side_b_wins
+                },
+                'avg_steps': avg_steps
+            }
+        })
+    except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
+        print(f"Consolidation error: {error_details}")
+        return jsonify({
+            'status': 'error',
+            'message': str(e),
+            'details': error_details
+        }), 500
+
 def cleanup_logging():
     """Gracefully shutdown logging system"""
     try:

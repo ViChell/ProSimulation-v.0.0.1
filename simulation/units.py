@@ -33,7 +33,25 @@ class MilitaryUnit(mesa.Agent):
 
         # Get logger
         self.logger = SimulationLogger.get_logger('units')
-        
+
+    def get_potential(self):
+        """
+        Calculate unit's current combat potential
+        Potential = base_potential * (current_hp / max_hp)^(1/4)
+        """
+        import config
+
+        if not self.is_alive:
+            return 0.0
+
+        base_potential = config.UNIT_POTENTIAL.get(self.unit_type, 1.0)
+        hp_ratio = self.hp / self.max_hp if self.max_hp > 0 else 0
+
+        # Apply quarter-power formula for HP effect
+        hp_factor = hp_ratio ** 0.25
+
+        return base_potential * hp_factor
+
     def calculate_distance(self, other_pos):
         """Calculate distance to another position in km (approximate)"""
         dx = (other_pos[0] - self.pos[0]) * 111.32  # lon to km at equator

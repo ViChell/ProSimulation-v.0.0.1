@@ -22,6 +22,17 @@ const ICON_PATHS = {
     'uav': '/static/icons/uav.png'
 };
 
+// Toggle panel collapse/expand
+function togglePanel(panelId) {
+    const content = document.getElementById(panelId + 'Content');
+    const icon = document.getElementById(panelId + 'Icon');
+
+    if (content && icon) {
+        content.classList.toggle('collapsed');
+        icon.classList.toggle('collapsed');
+    }
+}
+
 // Initialize map and load configuration
 async function initMap() {
     try {
@@ -473,8 +484,11 @@ async function stepSimulation() {
                         console.log(`All ${totalSimulations} simulations completed!`);
                         multiSimRunning = false;
                         updateProgress();
+
+                        // Показати підсумок та запустити консолідацію
+                        showBatchCompletionSummary();
                     }
-                    // Не показувати alert
+                    // Не показувати alert для окремих симуляцій
                     // showFinalStatistics(result.statistics);
                 }
             }
@@ -590,6 +604,47 @@ function updateProgress() {
                 document.getElementById('progressRow').style.display = 'none';
             }
         }, 2000);
+    }
+}
+
+// Show batch completion summary and run consolidation
+async function showBatchCompletionSummary() {
+    console.log('Running consolidated analysis...');
+
+    try {
+        const response = await fetch('/api/consolidate', { method: 'POST' });
+        const result = await response.json();
+
+        if (result.status === 'success') {
+            const data = result.data;
+            const winnerA = data.winner_stats.side_a_wins;
+            const winnerB = data.winner_stats.side_b_wins;
+            const total = data.total_simulations;
+            const winPercentA = ((winnerA / total) * 100).toFixed(1);
+            const winPercentB = ((winnerB / total) * 100).toFixed(1);
+
+            const message = `
+🎉 ALL ${total} SIMULATIONS COMPLETED! 🎉
+
+📊 WINNER STATISTICS:
+  Side A (Blue): ${winnerA} wins (${winPercentA}%)
+  Side B (Red):  ${winnerB} wins (${winPercentB}%)
+
+📁 CONSOLIDATED REPORT:
+  ${data.report_file}
+
+You can find detailed analysis in the logs folder.
+            `.trim();
+
+            alert(message);
+            console.log('Consolidated analysis completed:', data.report_file);
+        } else {
+            console.warn('Consolidation failed:', result.message);
+            alert(`⚠️ ${totalSimulations} simulations completed!\n\nNote: Consolidated analysis failed.\nCheck individual logs in logs/combat/ folder.`);
+        }
+    } catch (error) {
+        console.error('Error running consolidation:', error);
+        alert(`⚠️ ${totalSimulations} simulations completed!\n\nNote: Could not run consolidated analysis.\nCheck individual logs in logs/combat/ folder.`);
     }
 }
 

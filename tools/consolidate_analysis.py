@@ -56,9 +56,12 @@ class ConsolidatedAnalyzer:
             # Знайти відповідний JSON файл з детальними даними
             combat_dir = self.logs_dir / 'combat'
             if combat_dir.exists():
-                # Шукаємо JSON файли які не є analysis
+                # Шукаємо JSON файли які не є analysis або summary
                 json_files = [f for f in combat_dir.glob('combat_*.json')
-                              if 'analysis' not in f.name and 'latest' not in f.name]
+                              if 'analysis' not in f.name
+                              and 'latest' not in f.name
+                              and 'summary' not in f.name
+                              and f.stat().st_size > 0]  # Виключити порожні файли
 
                 if json_files:
                     # Беремо найближчий по часу до текстового файлу
@@ -150,6 +153,12 @@ class ConsolidatedAnalyzer:
                     'destroyed': side_data.get('destroyed', 0)
                 }
 
+        # Дані про потенціал (для нових симуляцій)
+        # Примітка: потенціал зберігається в summary JSON, а не в analysis JSON
+        # Тому ми спробуємо знайти відповідний summary файл
+        if 'potential' in json_data:
+            extracted['potential'] = json_data['potential']
+
         # Статистика
         if 'statistics' in json_data:
             stats = json_data['statistics']
@@ -167,12 +176,49 @@ class ConsolidatedAnalyzer:
                 extracted['max_damage'] = stats['damages'].get('max', 0)
 
         # Визначити переможця
+        # Нова логіка: переможець визначається по потенціалу (якщо є дані)
+        # Стара логіка: по кількості знищених (для сумісності зі старими симуляціями)
         if 'sides' in extracted and extracted['sides']:
-            side_a_kills = extracted['sides'].get('A', {}).get('kills', 0)
-            side_b_kills = extracted['sides'].get('B', {}).get('kills', 0)
-            extracted['winner'] = 'A' if side_a_kills > side_b_kills else 'B'
+            # Спробувати визначити по потенціалу (нові симуляції)
+            if 'potential' in extracted:
+                potential_a = extracted['potential'].get('A', {})
+                potential_b = extracted['potential'].get('B', {})
+
+                # Якщо є дані про потенціал, використати їх
+                if 'percent' in potential_a and 'percent' in potential_b:
+                    # Side програла якщо потенціал <= 30%
+                    if potential_a['percent'] <= 30:
+                        extracted['winner'] = 'B'
+                    elif potential_b['percent'] <= 30:
+                        extracted['winner'] = 'A'
+                    else:
+                        # Якщо обидві вище 30%, визначити по кількості kills
+                        side_a_kills = extracted['sides'].get('A', {}).get('kills', 0)
+                        side_b_kills = extracted['sides'].get('B', {}).get('kills', 0)
+                        extracted['winner'] = 'A' if side_a_kills > side_b_kills else 'B'
+                else:
+                    # Fallback до старої логіки
+                    extracted['winner'] = self._determine_winner_old_logic(extracted)
+            else:
+                # Стара логіка для сумісності
+                extracted['winner'] = self._determine_winner_old_logic(extracted)
 
         return extracted
+
+    def _determine_winner_old_logic(self, extracted):
+        """Old logic for determining winner (for backwards compatibility)"""
+        side_a_kills = extracted['sides'].get('A', {}).get('kills', 0)
+        side_b_kills = extracted['sides'].get('B', {}).get('kills', 0)
+
+        # Side A виграла якщо знищила всіх ворогів Side B (90 юнітів)
+        # Side B виграла якщо знищила всіх ворогів Side A (200 юнітів)
+        if side_a_kills >= 90:  # Side A знищила всіх з Side B
+            return 'A'
+        elif side_b_kills >= 200:  # Side B знищила всіх з Side A
+            return 'B'
+        else:
+            # Якщо обидві живі, визначити по поточному балансу
+            return 'A' if side_a_kills > side_b_kills else 'B'
 
     def load_all_data(self):
         """Завантажити дані з усіх файлів аналізу"""

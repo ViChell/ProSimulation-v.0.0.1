@@ -38,6 +38,40 @@
             color: #333;
             border-bottom: 2px solid #4CAF50;
             padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #controls h2:hover {
+            background: rgba(76, 175, 80, 0.05);
+            margin: 0 -15px 15px -15px;
+            padding: 8px 15px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .collapse-icon {
+            font-size: 14px;
+            transition: transform 0.3s;
+            color: #4CAF50;
+        }
+
+        .collapse-icon.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .panel-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            overflow: hidden;
+            max-height: 2000px;
+            opacity: 1;
+        }
+
+        .panel-content.collapsed {
+            max-height: 0;
+            opacity: 0;
         }
         
         .button-group {
@@ -143,6 +177,22 @@
             color: #333;
             border-bottom: 2px solid #2196F3;
             padding-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        #statistics h2:hover {
+            background: rgba(33, 150, 243, 0.05);
+            margin: 0 -15px 12px -15px;
+            padding: 8px 15px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        #statistics .collapse-icon {
+            color: #2196F3;
         }
         
         .stat-section {
@@ -383,8 +433,12 @@
 </head>
 <body>
     <div id="controls">
-        <h2>⚔️ Combat Simulation</h2>
+        <h2 onclick="togglePanel('controls')">
+            <span>⚔️ Combat Simulation</span>
+            <span class="collapse-icon" id="controlsIcon">▼</span>
+        </h2>
 
+        <div class="panel-content" id="controlsContent">
         <div class="control-row">
             <label>
                 Simulations to run:
@@ -442,11 +496,17 @@
                 UAV
             </div>
         </div>
+        </div>
     </div>
     
     <div id="statistics">
-        <h2>📊 Statistics</h2>
-        <div id="statsContent">Loading...</div>
+        <h2 onclick="togglePanel('statistics')">
+            <span>📊 Statistics</span>
+            <span class="collapse-icon" id="statisticsIcon">▼</span>
+        </h2>
+        <div class="panel-content" id="statisticsContent">
+            <div id="statsContent">Loading...</div>
+        </div>
     </div>
     
     <div id="info">

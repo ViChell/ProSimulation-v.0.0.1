@@ -46,6 +46,19 @@ SIDE_COLORS = {
     'B': '#ff3333'   # Red
 }
 
+# Combat potential values for each unit type
+UNIT_POTENTIAL = {
+    'infantry': 0.5,
+    'bmp': 2.0,
+    'tank': 6.0,
+    'mortar': 2.0,
+    'artillery': 3.0,
+    'uav': 4.0
+}
+
+# Victory condition: side loses when potential drops to this percentage
+DEFEAT_POTENTIAL_THRESHOLD = 0.30  # 30% of initial potential
+
 # Logging configuration
 LOGGING_ENABLED = True  # Enable/disable logging system
 LOG_DIR = os.path.join(BASE_DIR, 'logs')  # Directory for all log files

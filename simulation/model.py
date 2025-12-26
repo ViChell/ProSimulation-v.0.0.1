@@ -67,7 +67,13 @@ class CombatSimulation(mesa.Model):
             self.agents.add(unit)
             self.logger.debug(f"Created unit: {unit.name} ({unit.unit_type}) - Side {unit.side} at {unit.pos}")
 
+        # Calculate initial combat potential for each side
+        self.initial_potential = {'A': 0, 'B': 0}
+        for agent in self.agents:
+            self.initial_potential[agent.side] += agent.get_potential()
+
         self.logger.info(f"Simulation initialized with {len(self.agents)} units")
+        self.logger.info(f"Initial combat potential - Side A: {self.initial_potential['A']:.2f}, Side B: {self.initial_potential['B']:.2f}")
         self.display_status()
     
     def get_engagement_rule(self, attacker_type, target_type):
@@ -77,7 +83,15 @@ class CombatSimulation(mesa.Model):
     def get_engagement_priority(self, attacker_type, target_type):
         """Get engagement priority"""
         return self.engagement_rules.get_priority(attacker_type, target_type)
-    
+
+    def calculate_current_potential(self):
+        """Calculate current combat potential for each side"""
+        potential = {'A': 0, 'B': 0}
+        for agent in self.agents:
+            if agent.is_alive:
+                potential[agent.side] += agent.get_potential()
+        return potential
+
     def step(self):
         """Execute one step of the simulation"""
         self.step_count += 1
@@ -115,17 +129,34 @@ class CombatSimulation(mesa.Model):
         side_a_alive = len([a for a in self.agents if a.side == 'A' and a.is_alive])
         side_b_alive = len([a for a in self.agents if a.side == 'B' and a.is_alive])
 
+        # Calculate current combat potential
+        current_potential = self.calculate_current_potential()
+        potential_a_percent = (current_potential['A'] / self.initial_potential['A'] * 100) if self.initial_potential['A'] > 0 else 0
+        potential_b_percent = (current_potential['B'] / self.initial_potential['B'] * 100) if self.initial_potential['B'] > 0 else 0
+
         self.logger.info(f"Combat events: {shots} shots, {hits} hits, {kills} destroyed")
         self.logger.info(f"Forces alive - Side A: {side_a_alive} | Side B: {side_b_alive}")
+        self.logger.info(f"Combat potential - Side A: {current_potential['A']:.2f}/{self.initial_potential['A']:.2f} ({potential_a_percent:.1f}%) | Side B: {current_potential['B']:.2f}/{self.initial_potential['B']:.2f} ({potential_b_percent:.1f}%)")
 
-        # Check if simulation should continue
-        if side_a_alive == 0 or side_b_alive == 0:
+        # Check if simulation should continue based on potential threshold
+        defeat_threshold = config.DEFEAT_POTENTIAL_THRESHOLD
+        side_a_defeated = potential_a_percent <= (defeat_threshold * 100)
+        side_b_defeated = potential_b_percent <= (defeat_threshold * 100)
+
+        if side_a_defeated or side_b_defeated or side_a_alive == 0 or side_b_alive == 0:
             self.running = False
-            winner = 'Side B' if side_a_alive == 0 else 'Side A'
+
+            # Determine winner
+            if side_a_alive == 0 or side_a_defeated:
+                winner = 'Side B'
+                reason = 'complete destruction' if side_a_alive == 0 else f'potential dropped to {potential_a_percent:.1f}%'
+            else:
+                winner = 'Side A'
+                reason = 'complete destruction' if side_b_alive == 0 else f'potential dropped to {potential_b_percent:.1f}%'
 
             self.logger.info("="*60)
             self.logger.critical(f"SIMULATION ENDED AT STEP {self.step_count}")
-            self.logger.critical(f"WINNER: {winner}")
+            self.logger.critical(f"WINNER: {winner} ({reason})")
             self.logger.info("="*60)
 
             # Детальна статистика
@@ -265,8 +296,23 @@ class CombatSimulation(mesa.Model):
     
     def get_statistics(self):
         """Get detailed statistics for the simulation"""
+        # Calculate current potential
+        current_potential = self.calculate_current_potential()
+
         stats = {
             'step': self.step_count,
+            'potential': {
+                'A': {
+                    'current': round(current_potential['A'], 2),
+                    'initial': round(self.initial_potential['A'], 2),
+                    'percent': round((current_potential['A'] / self.initial_potential['A'] * 100) if self.initial_potential['A'] > 0 else 0, 1)
+                },
+                'B': {
+                    'current': round(current_potential['B'], 2),
+                    'initial': round(self.initial_potential['B'], 2),
+                    'percent': round((current_potential['B'] / self.initial_potential['B'] * 100) if self.initial_potential['B'] > 0 else 0, 1)
+                }
+            },
             'sides': {}
         }
         

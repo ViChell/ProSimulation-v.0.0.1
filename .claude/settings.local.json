@@ -3,7 +3,9 @@
     "allow": [
       "Bash(dir:*)",
       "Bash(nul)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(done)",
+      "Bash(taskkill:*)"
     ],
     "deny": [],
     "ask": []
