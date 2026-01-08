@@ -12,11 +12,15 @@ import config
 class CombatSimulation(mesa.Model):
     """Main simulation model for combat operations"""
 
-    def __init__(self, objects_file='data/objects.xlsx', rules_file='data/sets.xlsx'):
+    def __init__(self,
+                 types_file='data/unit_types.xlsx',
+                 instances_file='data/unit_instances.xlsx',
+                 rules_file='data/engagement_rules.xlsx'):
         super().__init__()
 
         self.step_count = 0
-        self.objects_file = objects_file
+        self.types_file = types_file
+        self.instances_file = instances_file
         self.rules_file = rules_file
         self.combat_events = []  # Події бою для візуалізації
         self._analysis_completed = False  # Прапорець для запобігання дублюванню аналізу
@@ -46,14 +50,15 @@ class CombatSimulation(mesa.Model):
         self.logger.info("="*60)
         self.logger.info("INITIALIZING COMBAT SIMULATION")
         self.logger.info("="*60)
-        self.logger.info(f"Objects file: {objects_file}")
+        self.logger.info(f"Unit types file: {types_file}")
+        self.logger.info(f"Unit instances file: {instances_file}")
         self.logger.info(f"Rules file: {rules_file}")
 
         # Load engagement rules
         self.engagement_rules = EngagementRules(rules_file)
 
         # Load unit data and create agents
-        self.data_loader = DataLoader(objects_file)
+        self.data_loader = DataLoader(types_file=types_file, instances_file=instances_file)
         units_data = self.data_loader.load_objects()
 
         self.logger.info(f"Loaded {len(units_data)} units")

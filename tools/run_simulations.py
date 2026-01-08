@@ -25,9 +25,13 @@ from tools.consolidate_analysis import ConsolidatedAnalyzer
 class SimulationBatch:
     """Керує серією симуляцій"""
 
-    def __init__(self, count=10, objects_file='data/objects.xlsx', rules_file='data/sets.xlsx'):
+    def __init__(self, count=10,
+                 types_file='data/unit_types.xlsx',
+                 instances_file='data/unit_instances.xlsx',
+                 rules_file='data/engagement_rules.xlsx'):
         self.count = count
-        self.objects_file = objects_file
+        self.types_file = types_file
+        self.instances_file = instances_file
         self.rules_file = rules_file
         self.results = []
         self.start_time = None
@@ -38,9 +42,10 @@ class SimulationBatch:
         print("\n" + "=" * 70)
         print(f"BATCH SIMULATION RUN - {self.count} simulations".center(70))
         print("=" * 70)
-        print(f"\nObjects: {self.objects_file}")
-        print(f"Rules:   {self.rules_file}")
-        print(f"Time:    {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        print(f"\nUnit types:  {self.types_file}")
+        print(f"Instances:   {self.instances_file}")
+        print(f"Rules:       {self.rules_file}")
+        print(f"Time:        {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
 
         self.start_time = time.time()
 
@@ -57,7 +62,8 @@ class SimulationBatch:
 
         try:
             sim = CombatSimulation(
-                objects_file=self.objects_file,
+                types_file=self.types_file,
+                instances_file=self.instances_file,
                 rules_file=self.rules_file
             )
 
@@ -220,14 +226,19 @@ def main():
         help='Number of simulations to run (default: 10)'
     )
     parser.add_argument(
-        '--objects',
-        default='data/objects.xlsx',
-        help='Path to objects Excel file (default: data/objects.xlsx)'
+        '--types',
+        default='data/unit_types.xlsx',
+        help='Path to unit types Excel file (default: data/unit_types.xlsx)'
+    )
+    parser.add_argument(
+        '--instances',
+        default='data/unit_instances.xlsx',
+        help='Path to unit instances Excel file (default: data/unit_instances.xlsx)'
     )
     parser.add_argument(
         '--rules',
-        default='data/sets.xlsx',
-        help='Path to rules Excel file (default: data/sets.xlsx)'
+        default='data/engagement_rules.xlsx',
+        help='Path to engagement rules Excel file (default: data/engagement_rules.xlsx)'
     )
 
     args = parser.parse_args()
@@ -235,7 +246,8 @@ def main():
     # Запустити серію
     batch = SimulationBatch(
         count=args.count,
-        objects_file=args.objects,
+        types_file=args.types,
+        instances_file=args.instances,
         rules_file=args.rules
     )
     batch.run()

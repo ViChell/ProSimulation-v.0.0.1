@@ -7,10 +7,11 @@ import os
 # Base directory
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Data files
+# Data files (normalized structure)
 DATA_DIR = os.path.join(BASE_DIR, 'data')
-OBJECTS_FILE = os.path.join(DATA_DIR, 'objects.xlsx')
-RULES_FILE = os.path.join(DATA_DIR, 'sets.xlsx')
+UNIT_TYPES_FILE = os.path.join(DATA_DIR, 'unit_types.xlsx')
+UNIT_INSTANCES_FILE = os.path.join(DATA_DIR, 'unit_instances.xlsx')
+RULES_FILE = os.path.join(DATA_DIR, 'engagement_rules.xlsx')
 
 # MBTiles configuration
 MBTILES_PATH = "d:\horizondata\map\Топо.mbtiles"  # Update this path as needed

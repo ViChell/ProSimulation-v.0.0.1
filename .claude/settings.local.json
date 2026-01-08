@@ -5,7 +5,8 @@
       "Bash(nul)",
       "Bash(python:*)",
       "Bash(done)",
-      "Bash(taskkill:*)"
+      "Bash(taskkill:*)",
+      "Bash(timeout 60 python:*)"
     ],
     "deny": [],
     "ask": []

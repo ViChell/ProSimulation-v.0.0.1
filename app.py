@@ -20,7 +20,8 @@ def init_simulation():
     """Initialize or reset the simulation"""
     global sim
     sim = CombatSimulation(
-        objects_file=config.OBJECTS_FILE,
+        types_file=config.UNIT_TYPES_FILE,
+        instances_file=config.UNIT_INSTANCES_FILE,
         rules_file=config.RULES_FILE
     )
     return sim
